@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": "../",
-    "outDir": "../dist",
+    "baseUrl": "../src",
+    "outDir": "../src/dist",
     "declaration": true,
     "emitDeclarationOnly": true,
     "strictNullChecks": true,
@@ -26,7 +26,7 @@
     "isolatedModules": true
   },
   "files": [
-    "../components/index.ts"
+    "../src/components/index.ts"
   ],
   "exclude": [
     "node_modules",

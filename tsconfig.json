@@ -2,8 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "geist-ui": [
-        "components/index.tsx"
+      "numen-ui": [
+        "src/components/index.tsx"
+      ],
+      "@numen-ui/core": [
+        "src/components/index.ts"
+      ],
+      "components": [
+        "../src/components/index.ts"
       ]
     },
     "strictNullChecks": true,

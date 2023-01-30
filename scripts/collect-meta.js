@@ -2,7 +2,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const extractMetadata = require('extract-mdx-metadata')
 const metaLocales = require('./locales')
-const pagePrefix = path.join(__dirname, '../pages')
+const pagePrefix = path.join(__dirname, '../docs/pages')
 const getTargetPath = locale => {
   return path.join(__dirname, '../lib/data/', `metadata-${locale}.json`)
 }

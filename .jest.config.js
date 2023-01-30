@@ -3,33 +3,33 @@ module.exports = {
 
   testEnvironment: 'jsdom',
 
-  setupFilesAfterEnv: ['./tests/setup.ts'],
+  setupFilesAfterEnv: ['./src/tests/setup.ts'],
 
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
 
   testPathIgnorePatterns: ['/pages/', '/dist/', '/lib/', '/esm/'],
 
   transform: {
-    '^.+\\.tsx?$': ['babel-jest', { configFile: './tests/.babelrc.js' }],
+    '^.+\\.tsx?$': ['babel-jest', { configFile: './src/tests/.babelrc.js' }],
   },
 
   testRegex: '.*\\.test\\.(j|t)sx?$',
   // testRegex: 'use-classes\\/.*\\.test\\.(j|t)sx?$',
 
   collectCoverageFrom: [
-    'components/**/*.{ts,tsx}',
-    '!components/**/styles.{ts,tsx}',
-    '!components/**/*types.{ts,tsx}',
-    '!components/use-theme/*',
-    '!components/use-all-themes/*',
-    '!components/themes/*',
-    '!components/geist-provider/*',
-    '!components/index.ts',
-    '!components/utils/**/*',
+    'src/components/**/*.{ts,tsx}',
+    '!src/components/**/styles.{ts,tsx}',
+    '!src/components/**/*types.{ts,tsx}',
+    '!src/components/use-theme/*',
+    '!src/components/use-all-themes/*',
+    '!src/components/themes/*',
+    '!src/components/numen-provider/*',
+    '!src/components/index.ts',
+    '!src/components/utils/**/*',
   ],
 
   moduleNameMapper: {
-    'tests/(.*)$': '<rootDir>/tests/$1',
-    components: '<rootDir>/components/index.ts',
+    'tests/(.*)$': '<rootDir>/src/tests/$1',
+    components: '<rootDir>/src/components/index.ts',
   },
 }

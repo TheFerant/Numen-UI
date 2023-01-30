@@ -5,7 +5,7 @@ import babel from 'rollup-plugin-babel'
 import fs from 'fs-extra'
 import path from 'path'
 
-const root = path.join(__dirname, '../')
+const root = path.join(__dirname, '../src/')
 const componentsPath = path.join(root, 'components')
 const distPath = path.join(root, 'dist')
 const esmPath = path.join(root, 'esm')
