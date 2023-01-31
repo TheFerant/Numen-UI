@@ -1,6 +1,6 @@
 const fs = require('fs-extra')
 const path = require('path')
-const componentsPath = path.join(__dirname, '../src/components')
+const componentsPath = path.join(__dirname, '../components')
 
 module.exports = async () => {
   const files = await fs.readdir(componentsPath)
@@ -114,7 +114,7 @@ module.exports = async () => {
       output: {
         filename: '[name].js',
         path: path.resolve(__dirname, '../dist'),
-        library: 'numenUI',
+        library: 'GeistUI',
         libraryTarget: 'umd',
         globalObject: 'this',
       },

@@ -2,7 +2,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const extractMetadata = require('extract-mdx-metadata')
 const metaLocales = require('./locales')
-const pagePrefix = path.join(__dirname, '../docs/pages')
+const pagePrefix = path.join(__dirname, '../pages')
 const getTargetPath = locale => {
   return path.join(__dirname, '../lib/data/', `metadata-${locale}.json`)
 }
@@ -15,27 +15,15 @@ const weights = {
   customization: 10,
 }
 const groupWeights = {
-  快速上手: 1,
-  起步: 2,
-  定制化: 5,
   general: 1,
-  通用: 1,
   layout: 2,
-  布局: 2,
   surfaces: 3,
-  表面: 3,
   'data entry': 4,
-  数据录入: 4,
   'data display': 5,
-  数据展示: 5,
   feedback: 6,
-  反馈: 6,
   navigation: 7,
-  导航: 7,
   others: 8,
-  其他: 8,
   utils: 10,
-  工具包: 10,
 }
 
 const getMetadata = async (files, parentPath) => {

@@ -1,34 +1,34 @@
 [
   {
     "name": "Discussions",
-    "url": "https://github.com/numen-org/numen-ui/discussions"
+    "url": "https://github.com/geist-org/geist-ui/discussions"
   },
   {
     "name": "Example projects",
-    "url": "https://github.com/numen-org/numen-ui/tree/master/examples"
+    "url": "https://github.com/geist-org/geist-ui/tree/master/examples"
   },
   {
     "name": "Create issue",
-    "url": "https://github.com/numen-org/numen-ui/issues/new/choose"
+    "url": "https://github.com/geist-org/geist-ui/issues/new/choose"
   },
   {
     "name": "Release Note",
-    "url": "https://github.com/numen-org/numen-ui/releases"
+    "url": "https://github.com/geist-org/geist-ui/releases"
   },
   {
     "name": "Join Slack",
-    "url": "https://github.com/numen-org/numen-ui/discussions/572"
+    "url": "https://github.com/geist-org/geist-ui/discussions/572"
   },
   {
     "name": "License",
-    "url": "https://github.com/numen-org/numen-ui/blob/master/LICENSE"
+    "url": "https://github.com/geist-org/geist-ui/blob/master/LICENSE"
   },
   {
     "name": "Canary Documentation",
-    "url": "https://rc.numen-ui.dev/"
+    "url": "https://rc.geist-ui.dev/"
   },
   {
     "name": "Canary Releases",
-    "url": "https://github.com/numen-org/numen-ui/releases?q=canary&expanded=true"
+    "url": "https://github.com/geist-org/geist-ui/releases?q=canary&expanded=true"
   }
 ]

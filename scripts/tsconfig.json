@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": "../src",
-    "outDir": "../src/dist",
+    "baseUrl": "../",
+    "outDir": "../dist",
     "paths": {
       "*": ["*"],
-      "numen-ui": ["components/index.tsx"],
+      "geist-ui": ["components/index.tsx"],
       "components/*": [
         "components/*"
       ]
@@ -40,7 +40,7 @@
     ]
   },
   "files": [
-    "../src/components/index.ts"
+    "../components/index.ts"
   ],
   "exclude": [
     "node_modules",
