@@ -115,7 +115,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
             color: ${theme.palette.accents_3};
           }
           body::-webkit-scrollbar {
-            width: var(--geist-page-scrollbar-width);
+            width: var(--numen-page-scrollbar-width);
             background-color: ${theme.palette.accents_1};
           }
           body::-webkit-scrollbar-thumb {
@@ -123,8 +123,8 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
             border-radius: ${theme.layout.radius};
           }
           :root {
-            --geist-page-nav-height: 64px;
-            --geist-page-scrollbar-width: 4px;
+            --numen-page-nav-height: 64px;
+            --numen-page-scrollbar-width: 4px;
           }
         `}</style>
       </NumenProvider>

@@ -16,7 +16,7 @@ export const getButtonChildrenWithIcon = (
   const hasIcon = icon || iconRight
   const isRight = Boolean(iconRight)
   const paddingForAutoMode = auto
-    ? `calc(var(--geist-ui-button-height) / 2 + var(--geist-ui-button-icon-padding) * .5)`
+    ? `calc(var(--numen-ui-button-height) / 2 + var(--numen-ui-button-icon-padding) * .5)`
     : 0
   const classes = useClasses('text', isRight ? 'right' : 'left')
 

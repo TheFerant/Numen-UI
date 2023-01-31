@@ -25,10 +25,10 @@ exports[`UseToast should render different actions 1`] = `
             cursor: pointer;
             pointer-events: auto;
             box-shadow: none;
-            --geist-ui-button-icon-padding: calc(0.48466666666666663 * 16px);
-            --geist-ui-button-height: calc(1.6666666666666665 * 16px);
-            --geist-ui-button-color: #fff;
-            --geist-ui-button-bg: #000;
+            --numen-ui-button-icon-padding: calc(0.48466666666666663 * 16px);
+            --numen-ui-button-height: calc(1.6666666666666665 * 16px);
+            --numen-ui-button-color: #fff;
+            --numen-ui-button-bg: #000;
             min-width: min-content;
             width: auto;
             height: calc(1.6666666666666665 * 16px);
@@ -39,7 +39,7 @@ exports[`UseToast should render different actions 1`] = `
           .btn:hover,
           .btn:focus {
             color: #000;
-            --geist-ui-button-color: #000;
+            --numen-ui-button-color: #000;
             background-color: #fff;
             border-color: #000;
             cursor: pointer;
@@ -88,10 +88,10 @@ exports[`UseToast should render different actions 1`] = `
             cursor: pointer;
             pointer-events: auto;
             box-shadow: none;
-            --geist-ui-button-icon-padding: calc(0.48466666666666663 * 16px);
-            --geist-ui-button-height: calc(1.6666666666666665 * 16px);
-            --geist-ui-button-color: #666;
-            --geist-ui-button-bg: #fff;
+            --numen-ui-button-icon-padding: calc(0.48466666666666663 * 16px);
+            --numen-ui-button-height: calc(1.6666666666666665 * 16px);
+            --numen-ui-button-color: #666;
+            --numen-ui-button-bg: #fff;
             min-width: min-content;
             width: auto;
             height: calc(1.6666666666666665 * 16px);
@@ -102,7 +102,7 @@ exports[`UseToast should render different actions 1`] = `
           .btn:hover,
           .btn:focus {
             color: #000;
-            --geist-ui-button-color: #000;
+            --numen-ui-button-color: #000;
             background-color: #fff;
             border-color: #000;
             cursor: pointer;

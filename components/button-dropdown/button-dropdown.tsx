@@ -120,11 +120,11 @@ const ButtonDropdownComponent: React.FC<React.PropsWithChildren<ButtonDropdownPr
             box-sizing: border-box;
             border: 1px solid ${theme.palette.border};
             border-radius: ${theme.layout.radius};
-            --geist-ui-dropdown-height: ${SCALES.height(2.5)};
-            --geist-ui-dropdown-min-width: ${auto ? 'min-content' : SCALES.width(10.5)};
-            --geist-ui-dropdown-padding: ${SCALES.pt(0)} ${paddingRight} ${SCALES.pb(0)}
+            --numen-ui-dropdown-height: ${SCALES.height(2.5)};
+            --numen-ui-dropdown-min-width: ${auto ? 'min-content' : SCALES.width(10.5)};
+            --numen-ui-dropdown-padding: ${SCALES.pt(0)} ${paddingRight} ${SCALES.pb(0)}
               ${paddingLeft};
-            --geist-ui-dropdown-font-size: ${SCALES.font(0.875)};
+            --numen-ui-dropdown-font-size: ${SCALES.font(0.875)};
           }
 
           .btn-dropdown > :global(button) {

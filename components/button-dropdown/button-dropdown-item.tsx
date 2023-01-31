@@ -67,10 +67,10 @@ const ButtonDropdownItem: React.FC<React.PropsWithChildren<ButtonDropdownItemPro
           background-color: ${colors.bgColor};
           color: ${colors.color};
           width: 100%;
-          height: var(--geist-ui-dropdown-height);
-          min-width: var(--geist-ui-dropdown-min-width);
-          padding: var(--geist-ui-dropdown-padding);
-          font-size: var(--geist-ui-dropdown-font-size);
+          height: var(--numen-ui-dropdown-height);
+          min-width: var(--numen-ui-dropdown-min-width);
+          padding: var(--numen-ui-dropdown-padding);
+          font-size: var(--numen-ui-dropdown-font-size);
         }
 
         button:hover {

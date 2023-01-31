@@ -53,7 +53,7 @@ export const Layout: React.FC<React.PropsWithChildren<LayoutProps>> = React.memo
             flex-grow: 1;
           }
           .sidebar > .content {
-            height: calc(100% - 2rem - 96px + var(--geist-page-nav-height));
+            height: calc(100% - 2rem - 96px + var(--numen-page-nav-height));
             position: fixed;
             top: 96px;
             bottom: 2rem;

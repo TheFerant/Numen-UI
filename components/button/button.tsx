@@ -174,10 +174,10 @@ const ButtonComponent = React.forwardRef<
             cursor: ${cursor};
             pointer-events: ${events};
             box-shadow: ${shadow ? theme.expressiveness.shadowSmall : 'none'};
-            --geist-ui-button-icon-padding: ${SCALES.pl(0.727)};
-            --geist-ui-button-height: ${SCALES.height(2.5)};
-            --geist-ui-button-color: ${color};
-            --geist-ui-button-bg: ${bg};
+            --numen-ui-button-icon-padding: ${SCALES.pl(0.727)};
+            --numen-ui-button-height: ${SCALES.height(2.5)};
+            --numen-ui-button-color: ${color};
+            --numen-ui-button-bg: ${bg};
             min-width: ${auto ? 'min-content' : SCALES.width(10.5)};
             width: ${auto ? 'auto' : 'initial'};
             height: ${SCALES.height(2.5)};
@@ -188,7 +188,7 @@ const ButtonComponent = React.forwardRef<
           .btn:hover,
           .btn:focus {
             color: ${hover.color};
-            --geist-ui-button-color: ${hover.color};
+            --numen-ui-button-color: ${hover.color};
             background-color: ${hover.bg};
             border-color: ${hover.border};
             cursor: ${cursor};

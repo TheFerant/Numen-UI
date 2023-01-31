@@ -148,15 +148,15 @@ const Menu: React.FC<unknown> = () => {
 
       <style jsx>{`
         .menu-wrapper {
-          height: var(--geist-page-nav-height);
+          height: var(--numen-page-nav-height);
         }
         .menu {
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
-          padding-right: ${isLocked ? 'var(--geist-page-scrollbar-width)' : 0};
-          height: var(--geist-page-nav-height);
+          padding-right: ${isLocked ? 'var(--numen-page-scrollbar-width)' : 0};
+          height: var(--numen-page-nav-height);
           //width: 100%;
           backdrop-filter: saturate(180%) blur(5px);
           background-color: ${addColorAlpha(theme.palette.background, 0.8)};

@@ -23,7 +23,7 @@ module.exports = {
     '!components/use-theme/*',
     '!components/use-all-themes/*',
     '!components/themes/*',
-    '!components/geist-provider/*',
+    '!components/numen-provider/*',
     '!components/index.ts',
     '!components/utils/**/*',
   ],
