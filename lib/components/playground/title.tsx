@@ -57,5 +57,5 @@ const Title: React.FC<TitleProps> = React.memo(
 )
 
 Title.defaultProps = defaultProps
-Title.displayName = 'GeistPlayGroundTitle'
+Title.displayName = 'NumenPlayGroundTitle'
 export default Title

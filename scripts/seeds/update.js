@@ -56,7 +56,4 @@ const saveData = async (filename, data) => {
 ;(async () => {
   const enData = await getLocaleData('en-us')
   await saveData('seeds-en-us.json', enData)
-
-  const zhData = await getLocaleData('zh-cn')
-  await saveData('seeds-zh-cn.json', zhData)
 })()

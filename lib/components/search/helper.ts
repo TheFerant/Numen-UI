@@ -7,7 +7,7 @@ export type SearchResultGroup = {
 }
 
 export const search = (keyword: string, local: string): SearchResults => {
-  const localSeeds = local.includes('zh') ? seeds['zh-cn'] : seeds['en-us']
+  const localSeeds = seeds['en-us']
   const lowerCaseKeyword = keyword.toLowerCase()
   const data = localSeeds
     .filter(seed => {

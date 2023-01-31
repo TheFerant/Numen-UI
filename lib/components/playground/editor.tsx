@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { LiveEditor } from 'react-live'
-import { useConfigs } from 'lib/config-context'
 import { useTheme, useToasts, useClipboard } from 'components'
 import CopyIcon from '@geist-ui/icons/copy'
 import RightIcon from '@geist-ui/icons/chevronRight'
@@ -12,7 +11,6 @@ interface Props {
 const Editor: React.FC<Props> = ({ code }) => {
   const theme = useTheme()
   const { copy } = useClipboard()
-  const { isChinese } = useConfigs()
   const [visible, setVisible] = useState(false)
   const { setToast } = useToasts()
   const clickHandler = (event: React.MouseEvent) => {
@@ -25,7 +23,7 @@ const Editor: React.FC<Props> = ({ code }) => {
     event.stopPropagation()
     event.preventDefault()
     copy(code)
-    setToast({ text: isChinese ? '代码已拷贝至剪切板。' : 'code copied.' })
+    setToast({ text: 'code copied.' })
   }
 
   return (
@@ -37,14 +35,11 @@ const Editor: React.FC<Props> = ({ code }) => {
               <span className="arrow">
                 <RightIcon size={16} />
               </span>
-              <span>{isChinese ? '编辑代码' : 'Code Editor'}</span>
+              <span>Code Editor</span>
             </div>
             <div className="action">
               {visible && (
-                <span
-                  className="copy"
-                  onClick={copyHandler}
-                  title={isChinese ? '拷贝代码' : 'Copy Code'}>
+                <span className="copy" onClick={copyHandler} title="Copy Code">
                   <CopyIcon size={18} />
                 </span>
               )}

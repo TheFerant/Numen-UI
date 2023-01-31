@@ -1,23 +1,20 @@
 import React from 'react'
 import type { DeepPartial } from 'components/utils/types'
-import { GeistUIThemes } from 'components'
+import { NumenUIThemes } from 'components'
 
 export interface Configs {
-  onThemeChange?: (themes: DeepPartial<GeistUIThemes>) => void
-  isChinese?: boolean
-  updateChineseState: (state: boolean) => void
+  onThemeChange?: (themes: DeepPartial<NumenUIThemes>) => void
   sidebarScrollHeight: number
   updateSidebarScrollHeight: (height: number) => void
 
-  customTheme: DeepPartial<GeistUIThemes>
-  updateCustomTheme: (theme: DeepPartial<GeistUIThemes>) => void
+  customTheme: DeepPartial<NumenUIThemes>
+  updateCustomTheme: (theme: DeepPartial<NumenUIThemes>) => void
   switchTheme: (type: string) => void
 }
 
 export const defaultConfigs: Configs = {
   sidebarScrollHeight: 0,
   updateSidebarScrollHeight: () => {},
-  updateChineseState: () => {},
 
   customTheme: {},
   updateCustomTheme: () => {},

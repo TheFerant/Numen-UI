@@ -36,9 +36,8 @@ const Playground: React.FC<PlaygroundProps> = React.memo(
     scope,
   }: PlaygroundProps & typeof defaultProps) => {
     const theme = useTheme()
-    const { isChinese } = useConfigs()
     const code = inputCode.trim()
-    const title = inputTitle || (isChinese ? '基础的' : 'General')
+    const title = inputTitle || 'General'
 
     return (
       <>
@@ -59,5 +58,5 @@ const Playground: React.FC<PlaygroundProps> = React.memo(
 )
 
 Playground.defaultProps = defaultProps
-Playground.displayName = 'GeistPlayground'
+Playground.displayName = 'NumenPlayground'
 export default Playground
