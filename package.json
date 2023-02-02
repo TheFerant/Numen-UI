@@ -27,18 +27,18 @@
   },
   "license": "MIT",
   "description": "Modern and minimalist React UI library.",
-  "homepage": "https://geist-ui.dev",
+  "homepage": "https://numen.ferant.io",
   "bugs": {
-    "url": "https://github.com/geist-org/geist-ui/issues/new/choose"
+    "url": "https://github.com/theferant/numen-ui/issues/new/choose"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/geist-org/geist-ui"
+    "url": "https://github.com/theferant/numen-ui"
   },
   "prettier": "@geist-ui/prettier-config",
   "keywords": [
-    "geist",
-    "geist ui",
+    "numen",
+    "numen ui",
     "components",
     "react components",
     "react ui"
