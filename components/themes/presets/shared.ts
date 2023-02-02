@@ -1,13 +1,13 @@
-import { GeistUIThemesBreakpoints, GeistUIThemesFont, GeistUIThemesLayout } from './index'
+import { NumenUIThemesBreakpoints, NumenUIThemesFont, NumenUIThemesLayout } from './index'
 
-export const defaultFont: GeistUIThemesFont = {
+export const defaultFont: NumenUIThemesFont = {
   sans: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
   mono: 'Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace',
   prism:
     'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,"Liberation Mono", "Courier New", monospace',
 }
 
-export const defaultBreakpoints: GeistUIThemesBreakpoints = {
+export const defaultBreakpoints: NumenUIThemesBreakpoints = {
   xs: {
     min: '0',
     max: '650px',
@@ -30,7 +30,7 @@ export const defaultBreakpoints: GeistUIThemesBreakpoints = {
   },
 }
 
-export const defaultLayout: GeistUIThemesLayout = {
+export const defaultLayout: NumenUIThemesLayout = {
   gap: '16pt',
   gapNegative: '-16pt',
   gapHalf: '8pt',

@@ -1,7 +1,7 @@
-import { GeistUIThemes, GeistUIThemesPalette, GeistUIThemesExpressiveness } from './index'
+import { NumenUIThemes, NumenUIThemesPalette, NumenUIThemesExpressiveness } from './index'
 import { defaultFont, defaultBreakpoints, defaultLayout } from './shared'
 
-export const palette: GeistUIThemesPalette = {
+export const palette: NumenUIThemesPalette = {
   accents_1: '#fafafa',
   accents_2: '#eaeaea',
   accents_3: '#999',
@@ -42,7 +42,7 @@ export const palette: GeistUIThemesPalette = {
   link: '#0070f3',
 }
 
-export const expressiveness: GeistUIThemesExpressiveness = {
+export const expressiveness: NumenUIThemesExpressiveness = {
   linkStyle: 'none',
   linkHoverStyle: 'none',
   dropdownBoxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.02)',
@@ -60,7 +60,7 @@ export const breakpoints = defaultBreakpoints
 
 export const layout = defaultLayout
 
-export const themes: GeistUIThemes = {
+export const themes: NumenUIThemes = {
   type: 'light',
   font,
   layout,

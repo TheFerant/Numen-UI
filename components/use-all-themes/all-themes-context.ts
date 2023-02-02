@@ -1,9 +1,9 @@
 import React from 'react'
 import Themes from '../themes/themes'
-import { GeistUIThemes } from '../themes/presets'
+import { NumenUIThemes } from '../themes/presets'
 
 export type AllThemesConfig = {
-  themes: Array<GeistUIThemes>
+  themes: Array<NumenUIThemes>
 }
 
 const defaultAllThemesConfig = {

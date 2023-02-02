@@ -21,6 +21,7 @@ import { CUSTOM_THEME_TYPE, ENGLISH_LANGUAGE_IDENT, GITHUB_URL } from 'lib/const
 const Controls: React.FC<unknown> = React.memo(() => {
   const theme = useTheme()
   const { themes } = useAllThemes()
+  const { switchTheme } = useConfigs()
   const { pathname } = useRouter()
   const { locale } = useLocale()
   const nextLocalePath = useMemo(() => {
