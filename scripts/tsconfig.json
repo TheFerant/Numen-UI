@@ -1,46 +1,26 @@
 {
   "compilerOptions": {
     "baseUrl": "../",
-    "outDir": "../dist",
-    "paths": {
-      "*": ["*"],
-      "geist-ui": ["components/index.tsx"],
-      "components/*": [
-        "components/*"
-      ]
-    },
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "strictNullChecks": true,
-    "moduleResolution": "node",
+    // Default
+    "target": "es5",
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "jsx": "preserve",
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "noImplicitAny": true,
-    "target": "es6",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "skipLibCheck": true,
-    "allowJs": true,
-    "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "plugins": [
-      {
-        "transform": "typescript-transform-paths",
-        "afterDeclarations": true,
-        "exclude": [ "**/node_modules/**" ]
-      }
-    ]
+    "strict": true,
+    "skipLibCheck": true,
+
+    // Added
+    "jsx": "react",
+    "module": "ESNext",
+    "declaration": true,
+    "declarationDir": "types",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true,
+    "typeRoots": ["./node_modules/@types", "./@types"]
   },
   "files": [
-    "../components/index.ts"
+    "../packages/core/src/index.ts"
   ],
   "exclude": [
     "node_modules",
