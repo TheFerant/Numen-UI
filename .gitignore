@@ -2,5 +2,7 @@ node_modules/
 
 dist/
 .next/
+lib/
+lib-esm/
 
 package-lock.json
