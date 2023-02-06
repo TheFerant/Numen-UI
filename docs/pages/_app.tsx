@@ -4,7 +4,7 @@ import { ThemeProvider, BaseStyles, Button } from "@numen-ui/core";
 
 export default function Home() {
   return (
-    <ThemeProvider colorMode="auto">
+    <ThemeProvider colorMode="light">
       <BaseStyles>
         <div>
           <Head>

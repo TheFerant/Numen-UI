@@ -7,12 +7,13 @@ export const getVariantStyles = (
 ) => {
   const style = {
     default: {
-      color: "btn.text",
-      backgroundColor: "btn.bg",
+      color: "btn.bg",
+      backgroundColor: `${theme?.colors.neutral.emphasisPlus}`,
       boxShadow: `${theme?.shadows.btn.shadow}, ${theme?.shadows.btn.insetShadow}`,
       "&:hover:not([disabled])": {
-        backgroundColor: "btn.hoverBg",
-        borderColor: "btn.hoverBorder",
+        color: `${theme?.colors.neutral.emphasisPlus}`,
+        backgroundColor: "btn.bg",
+        borderColor: `${theme?.colors.neutral.emphasisPlus}`,
       },
       "&:active:not([disabled])": {
         backgroundColor: "btn.activeBg",
@@ -181,97 +182,99 @@ export const getVariantStyles = (
   return style[variant];
 };
 
-export const getBaseStyles = (theme?: Theme) => ({
-  borderRadius: "2",
-  border: "1px solid",
-  borderColor: theme?.colors.btn.border,
-  fontFamily: "inherit",
-  fontWeight: "semibold",
-  fontSize: "1",
-  cursor: "pointer",
-  appearance: "none",
-  userSelect: "none",
-  textDecoration: "none",
-  textAlign: "center",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  height: "32px",
-  padding: "0 12px",
-  gap: "8px",
-  minWidth: "max-content",
-  transition: "80ms cubic-bezier(0.65, 0, 0.35, 1)",
-  transitionProperty: "color, fill, background-color, border-color",
-  "&[href]": {
-    display: "inline-flex",
-    "&:hover": {
-      textDecoration: "none",
-    },
-  },
-  "&:hover": {
-    transitionDuration: "80ms",
-  },
-  "&:active": {
-    transition: "none",
-  },
-  "&:disabled": {
-    cursor: "not-allowed",
-    boxShadow: "none",
-  },
-  "@media (forced-colors: active)": {
-    "&:focus": {
-      // Support for Windows high contrast https://sarahmhigley.com/writing/whcm-quick-tips
-      outline: "solid 1px transparent",
-    },
-  },
-  "[data-component=ButtonCounter]": {
+export const getBaseStyles = (theme?: Theme) => {
+  return {
+    borderRadius: "2",
+    border: "1px solid",
+    borderColor: theme?.colors.btn.border,
+    fontFamily: "inherit",
+    fontWeight: "normal",
     fontSize: "1",
-  },
-  "&[data-component=IconButton]": {
-    display: "inline-grid",
-    padding: "unset",
-    placeContent: "center",
-    width: "32px",
-    minWidth: "unset",
-  },
-  '&[data-size="small"]': {
-    padding: "0 8px",
-    height: "28px",
-    gap: "4px",
-    fontSize: "0",
-
-    '[data-component="text"]': {
-      lineHeight: "calc(20 / 12)",
-    },
-
-    "[data-component=ButtonCounter]": {
-      fontSize: "0",
-    },
-
-    '[data-component="buttonContent"] > :not(:last-child)': {
-      mr: "4px",
-    },
-
-    "&[data-component=IconButton]": {
-      width: "28px",
-      padding: "unset",
-    },
-  },
-  '&[data-size="large"]': {
-    padding: "0 16px",
-    height: "40px",
+    cursor: "pointer",
+    appearance: "none",
+    userSelect: "none",
+    textDecoration: "none",
+    textAlign: "center",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    height: "32px",
+    padding: "0 12px",
     gap: "8px",
-
-    '[data-component="buttonContent"] > :not(:last-child)': {
-      mr: "8px",
+    minWidth: "max-content",
+    transition: "80ms cubic-bezier(0.65, 0, 0.35, 1)",
+    transitionProperty: "color, fill, background-color, border-color",
+    "&[href]": {
+      display: "inline-flex",
+      "&:hover": {
+        textDecoration: "none",
+      },
     },
-
+    "&:hover": {
+      transitionDuration: "80ms",
+    },
+    "&:active": {
+      transition: "none",
+    },
+    "&:disabled": {
+      cursor: "not-allowed",
+      boxShadow: "none",
+    },
+    "@media (forced-colors: active)": {
+      "&:focus": {
+        // Support for Windows high contrast https://sarahmhigley.com/writing/whcm-quick-tips
+        outline: "solid 1px transparent",
+      },
+    },
+    "[data-component=ButtonCounter]": {
+      fontSize: "1",
+    },
     "&[data-component=IconButton]": {
-      width: "40px",
+      display: "inline-grid",
       padding: "unset",
+      placeContent: "center",
+      width: "32px",
+      minWidth: "unset",
     },
-  },
-});
+    '&[data-size="small"]': {
+      padding: "0 8px",
+      height: "28px",
+      gap: "4px",
+      fontSize: "0",
+
+      '[data-component="text"]': {
+        lineHeight: "calc(20 / 12)",
+      },
+
+      "[data-component=ButtonCounter]": {
+        fontSize: "0",
+      },
+
+      '[data-component="buttonContent"] > :not(:last-child)': {
+        mr: "4px",
+      },
+
+      "&[data-component=IconButton]": {
+        width: "28px",
+        padding: "unset",
+      },
+    },
+    '&[data-size="large"]': {
+      padding: "0 16px",
+      height: "40px",
+      gap: "8px",
+
+      '[data-component="buttonContent"] > :not(:last-child)': {
+        mr: "8px",
+      },
+
+      "&[data-component=IconButton]": {
+        width: "40px",
+        padding: "unset",
+      },
+    },
+  };
+};
 
 export const getButtonStyles = (theme?: Theme) => {
   const styles = {
@@ -311,3 +314,15 @@ export const getButtonStyles = (theme?: Theme) => {
 export const getAlignContentSize = (alignContent: AlignContent = "center") => ({
   justifyContent: alignContent === "center" ? "center" : "flex-start",
 });
+
+export const getButtonDripColor = (
+  palette: GeistUIThemesPalette,
+  props: ButtonProps
+) => {
+  const { type } = props;
+  const isLightHover = type!.endsWith("light");
+  const hoverColors = getButtonHoverColors(palette, props);
+  return isLightHover
+    ? addColorAlpha(hoverColors.bg, 0.65)
+    : addColorAlpha(palette.accents_2, 0.65);
+};
