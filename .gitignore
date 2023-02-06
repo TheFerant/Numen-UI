@@ -4,5 +4,6 @@ dist/
 .next/
 lib/
 lib-esm/
+stats.html
 
 package-lock.json
