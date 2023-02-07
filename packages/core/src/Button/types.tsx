@@ -8,6 +8,36 @@ export const StyledButton = styled.button<SxProp>`
   ${sx};
 `;
 
+export const StyledDrip = styled.div<SxProp>`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  @keyframes expand {
+    0% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    30% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(28);
+      opacity: 0;
+    }
+  }
+  ${sx};
+`;
+
+export const StyledDripG = styled.g<SxProp>`
+  ${sx};
+`;
+
 export type VariantType =
   | "default"
   | "primary"
@@ -65,6 +95,14 @@ export type ButtonProps = {
    * Content alignment for when visuals are present
    */
   alignContent?: AlignContent;
+  /**
+   * Is the component loading.
+   */
+  loading?: boolean;
+  /**
+   * Whether to show shadow or not.
+   */
+  shadow?: boolean;
 } & ButtonBaseProps;
 
 export type IconButtonProps = ButtonA11yProps & {

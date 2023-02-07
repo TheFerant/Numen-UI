@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
+import { StyledDrip, StyledDripG } from "./types";
 
 interface Props {
   x: number;
@@ -13,6 +14,16 @@ const defaultProps = {
 };
 
 export type ButtonDrip = Props;
+
+const dripStyle = {
+  svg: {
+    position: "absolute",
+    animation: "350ms ease-in expand",
+    animationFillMode: "forwards",
+    width: "1rem",
+    height: "1rem",
+  },
+};
 
 const ButtonDrip: React.FC<ButtonDrip> = ({
   x,
@@ -37,51 +48,24 @@ const ButtonDrip: React.FC<ButtonDrip> = ({
     };
   });
 
+  const dripGColor = useMemo(() => {
+    return {
+      fill: color,
+    };
+  }, [color]);
+
   return (
-    <div ref={dripRef} className="drip">
+    <StyledDrip ref={dripRef} className="drip" sx={dripStyle}>
       <svg width="20" height="20" viewBox="0 0 20 20" style={{ top, left }}>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g fill={color}>
-            <rect width="100%" height="100%" rx="10" />
+            <StyledDripG sx={dripGColor}>
+              <rect width="100%" height="100%" rx="10" />
+            </StyledDripG>
           </g>
         </g>
       </svg>
-
-      <style jsx>{`
-        .drip {
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-        }
-
-        svg {
-          position: absolute;
-          animation: 350ms ease-in expand;
-          animation-fill-mode: forwards;
-          width: 1rem;
-          height: 1rem;
-        }
-
-        @keyframes expand {
-          0% {
-            opacity: 0;
-            transform: scale(1);
-          }
-          30% {
-            opacity: 1;
-          }
-          80% {
-            opacity: 0.5;
-          }
-          100% {
-            transform: scale(28);
-            opacity: 0;
-          }
-        }
-      `}</style>
-    </div>
+    </StyledDrip>
   );
 };
 

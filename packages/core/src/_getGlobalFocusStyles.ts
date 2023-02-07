@@ -10,6 +10,7 @@ const globalFocusStyle = css`
 const getGlobalFocusStyles = (
   outlineOffset?: CSSProperties["outlineOffset"]
 ) => css`
+  position: relative;
   /* fallback :focus state */
   &:focus:not(:disabled) {
     ${globalFocusStyle};
@@ -19,7 +20,6 @@ const getGlobalFocusStyles = (
 
     // remove fallback :focus if :focus-visible is supported
     &:not(:focus-visible) {
-      outline: solid 1px transparent;
     }
   }
 

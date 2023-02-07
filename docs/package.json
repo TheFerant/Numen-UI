@@ -1,17 +1,26 @@
 {
   "private": true,
   "name": "@numen-ui/docs",
+  "version": "0.0.1-alpha.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@mapbox/rehype-prism": "^0.6.0",
+    "@mdx-js/loader": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@next/mdx": "^12.0.8",
     "@numen-ui/core": "*",
     "@primer/primitives": "7.10.0",
     "@primer/react": "35.19.0",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "rehype-join-line": "^1.0.2"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^12.0.10"
   }
 }

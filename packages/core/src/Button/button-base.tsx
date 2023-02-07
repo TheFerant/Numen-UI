@@ -1,4 +1,10 @@
-import React, { ComponentPropsWithRef, forwardRef, useMemo } from "react";
+import React, {
+  ComponentPropsWithRef,
+  forwardRef,
+  useMemo,
+  useState,
+  MouseEvent,
+} from "react";
 import { ForwardRefComponent as PolymorphicForwardRefComponent } from "../utils/polymorphic";
 import Box from "../Box";
 import { BetterSystemStyleObject, merge } from "../sx";
@@ -11,6 +17,7 @@ import {
 } from "./styles";
 import { useRefObjectAsForwardedRef } from "../hooks/useRefObjectAsForwardedRef";
 import { defaultSxProp } from "../utils/defaultSxProp";
+import ButtonDrip from "./button-drip";
 
 const ButtonBase = forwardRef(
   (
@@ -31,6 +38,10 @@ const ButtonBase = forwardRef(
       size = "medium",
       alignContent = "center",
       block = false,
+      onClick,
+      loading,
+      disabled,
+      shadow = false,
       ...rest
     } = props;
 
@@ -56,11 +67,6 @@ const ButtonBase = forwardRef(
       pointerEvents: "none",
     };
 
-    const dripColor = useMemo(
-      () => getButtonDripColor(theme.palette, filteredProps),
-      [theme.palette, filteredProps]
-    );
-
     /* istanbul ignore next */
     const dripCompletedHandle = () => {
       setDripShow(false);
@@ -68,12 +74,16 @@ const ButtonBase = forwardRef(
       setDripY(0);
     };
 
+    /** Test whether effect is ever NOT necessary */
+    const effect = true;
+
     const clickHandler = (event: MouseEvent<HTMLButtonElement>) => {
       if (disabled || loading) return;
-      const showDrip = !shadow && !ghost && effect;
+      // const showDrip = !shadow && effect;
+      const showDrip = effect;
       /* istanbul ignore next */
-      if (showDrip && buttonRef.current) {
-        const rect = buttonRef.current.getBoundingClientRect();
+      if (showDrip && innerRef.current) {
+        const rect = innerRef.current.getBoundingClientRect();
         setDripShow(true);
         setDripX(event.clientX - rect.left);
         setDripY(event.clientY - rect.top);
@@ -88,6 +98,7 @@ const ButtonBase = forwardRef(
         sx={sxStyles}
         {...rest}
         ref={innerRef}
+        onClick={clickHandler}
         data-block={block ? "block" : null}
         data-size={size === "small" || size === "large" ? size : undefined}
         data-no-visuals={
@@ -98,7 +109,7 @@ const ButtonBase = forwardRef(
           <ButtonDrip
             x={dripX}
             y={dripY}
-            color={dripColor}
+            color={(baseStyles as any).borderColor}
             onCompleted={dripCompletedHandle}
           />
         )}

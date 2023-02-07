@@ -12,12 +12,12 @@ export const getVariantStyles = (
       boxShadow: `${theme?.shadows.btn.shadow}, ${theme?.shadows.btn.insetShadow}`,
       "&:hover:not([disabled])": {
         color: `${theme?.colors.neutral.emphasisPlus}`,
-        backgroundColor: "btn.bg",
+        backgroundColor: `${theme?.colors.fg.onEmphasis}`,
         borderColor: `${theme?.colors.neutral.emphasisPlus}`,
       },
       "&:active:not([disabled])": {
-        backgroundColor: "btn.activeBg",
-        borderColor: "btn.activeBorder",
+        // backgroundColor: "btn.activeBg",
+        // borderColor: "btn.activeBorder",
       },
       "&:disabled": {
         color: "primer.fg.disabled",
@@ -40,14 +40,14 @@ export const getVariantStyles = (
         backgroundColor: "btn.primary.hoverBg",
       },
       "&:focus:not([disabled])": {
-        boxShadow: "inset 0 0 0 3px",
+        // boxShadow: "inset 0 0 0 3px",
       },
       "&:focus-visible:not([disabled])": {
-        boxShadow: "inset 0 0 0 3px",
+        // boxShadow: "inset 0 0 0 3px",
       },
       "&:active:not([disabled])": {
-        backgroundColor: "btn.primary.selectedBg",
-        boxShadow: `${theme?.shadows.btn.primary.selectedShadow}`,
+        // backgroundColor: "btn.primary.selectedBg",
+        // boxShadow: `${theme?.shadows.btn.primary.selectedShadow}`,
       },
       "&:disabled": {
         color: "btn.primary.disabledText",
@@ -80,10 +80,10 @@ export const getVariantStyles = (
         },
       },
       "&:active:not([disabled])": {
-        color: "btn.danger.selectedText",
-        backgroundColor: "btn.danger.selectedBg",
-        boxShadow: `${theme?.shadows.btn.danger.selectedShadow}`,
-        borderColor: "btn.danger.selectedBorder",
+        // color: "btn.danger.selectedText",
+        // backgroundColor: "btn.danger.selectedBg",
+        // boxShadow: `${theme?.shadows.btn.danger.selectedShadow}`,
+        // borderColor: "btn.danger.selectedBorder",
       },
       "&:disabled": {
         color: "btn.danger.disabledText",
@@ -204,6 +204,7 @@ export const getBaseStyles = (theme?: Theme) => {
     minWidth: "max-content",
     transition: "80ms cubic-bezier(0.65, 0, 0.35, 1)",
     transitionProperty: "color, fill, background-color, border-color",
+    overflow: 'hidden',
     "&[href]": {
       display: "inline-flex",
       "&:hover": {
@@ -223,7 +224,7 @@ export const getBaseStyles = (theme?: Theme) => {
     "@media (forced-colors: active)": {
       "&:focus": {
         // Support for Windows high contrast https://sarahmhigley.com/writing/whcm-quick-tips
-        outline: "solid 1px transparent",
+        // outline: "solid 1px transparent",
       },
     },
     "[data-component=ButtonCounter]": {
@@ -314,15 +315,3 @@ export const getButtonStyles = (theme?: Theme) => {
 export const getAlignContentSize = (alignContent: AlignContent = "center") => ({
   justifyContent: alignContent === "center" ? "center" : "flex-start",
 });
-
-export const getButtonDripColor = (
-  palette: GeistUIThemesPalette,
-  props: ButtonProps
-) => {
-  const { type } = props;
-  const isLightHover = type!.endsWith("light");
-  const hoverColors = getButtonHoverColors(palette, props);
-  return isLightHover
-    ? addColorAlpha(hoverColors.bg, 0.65)
-    : addColorAlpha(palette.accents_2, 0.65);
-};

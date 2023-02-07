@@ -2,8 +2,8 @@ node_modules/
 
 dist/
 .next/
-lib/
-lib-esm/
+packages/**/lib/
+packages/**/lib-esm/
 stats.html
 
 package-lock.json
