@@ -1,10 +1,10 @@
-import { Page, Button } from 'components'
-import { Layout, Playground, Attributes, MockPage } from 'lib/components'
+import { Page, Button } from "@numen-ui/core";
+import { Layout, Playground, Attributes, MockPage } from "lib/components";
 
 export const meta = {
-  title: 'Page',
-  group: 'Layout',
-}
+  title: "Page",
+  group: "Layout",
+};
 
 ## Page
 
@@ -71,8 +71,8 @@ Container of general for display page content.
 | --------------- | ---------------------------------- | --------------------------------- | ------------------------ | --------- |
 | **render**      | render mode                        | [PageRenderMode](#pagerendermode) | -                        | `default` |
 | **dotBackdrop** | show decorations in the background | `boolean`                         | -                        | `false`   |
-| **dotSize** | dot size in the background | `CSSProperties`                         | -                        | `1px`   |
-| **dotSpace** | space multiple between each dot | `number`                         | -                        | `1`   |
+| **dotSize**     | dot size in the background         | `CSSProperties`                   | -                        | `1px`     |
+| **dotSpace**    | space multiple between each dot    | `number`                          | -                        | `1`       |
 | ...             | native props                       | `HTMLAttributes`                  | `'id', 'className', ...` | -         |
 
 <Attributes.Title>Page.Header.Props</Attributes.Title>
@@ -98,11 +98,11 @@ Container of general for display page content.
 
 ```ts
 type PageRenderMode =
-  | 'default' // Normal rendering
-  | 'effect' // Render after the first effect trigger
-  | 'effect-seo' // like "effect", but prerender strings for SEO
+  | "default" // Normal rendering
+  | "effect" // Render after the first effect trigger
+  | "effect-seo"; // like "effect", but prerender strings for SEO
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

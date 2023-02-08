@@ -1,44 +1,51 @@
-import React, { useMemo } from 'react'
-import { useTheme, Popover, Themes } from 'components'
-import { ColorResult, TwitterPicker } from 'react-color'
-import { useConfigs } from 'lib/config-context'
-import { GeistUIThemesPalette } from 'components/themes'
-const DefaultTheme = Themes.getPresetStaticTheme()
+import React, { useMemo } from "react";
+import { useTheme, Popover, Themes } from "@numen-ui/core";
+import { ColorResult, TwitterPicker } from "react-color";
+import { useConfigs } from "lib/config-context";
+import { GeistUIThemesPalette } from "components/themes";
+const DefaultTheme = Themes.getPresetStaticTheme();
 
 interface Props {
-  value?: string
-  keyName: keyof GeistUIThemesPalette
+  value?: string;
+  keyName: keyof GeistUIThemesPalette;
 }
 
 const getRandomColor = () => {
-  const hex = `00000${((Math.random() * 0x1000000) << 0).toString(16)}`
-  return `#${hex.substr(-6)}`
-}
+  const hex = `00000${((Math.random() * 0x1000000) << 0).toString(16)}`;
+  return `#${hex.substr(-6)}`;
+};
 
 const getRandomColors = () => {
-  const kyes = Object.keys(DefaultTheme.palette) as Array<keyof GeistUIThemesPalette>
-  const basicColors = new Array(5).fill('').map(() => {
-    const index = Math.round(Math.random() * kyes.length) + kyes.length
-    return DefaultTheme.palette[kyes[index]]
-  })
-  const deduplicatedColors = [...new Set(...basicColors)]
+  const kyes = Object.keys(DefaultTheme.palette) as Array<
+    keyof GeistUIThemesPalette
+  >;
+  const basicColors = new Array(5).fill("").map(() => {
+    const index = Math.round(Math.random() * kyes.length) + kyes.length;
+    return DefaultTheme.palette[kyes[index]];
+  });
+  const deduplicatedColors = [...new Set(...basicColors)];
   const randomColors = new Array(10 - deduplicatedColors.length)
-    .fill('')
-    .map(() => getRandomColor())
-  return deduplicatedColors.concat(randomColors)
-}
+    .fill("")
+    .map(() => getRandomColor());
+  return deduplicatedColors.concat(randomColors);
+};
 
-const EditorColorItem: React.FC<React.PropsWithChildren<Props>> = ({ keyName }) => {
-  const theme = useTheme()
-  const { updateCustomTheme } = useConfigs()
-  const label = `${keyName}`
-  const mainColor = useMemo(() => theme.palette[keyName], [theme.palette, keyName])
-  const randomColors = useMemo(() => getRandomColors(), [])
+const EditorColorItem: React.FC<React.PropsWithChildren<Props>> = ({
+  keyName,
+}) => {
+  const { theme } = useTheme();
+  const { updateCustomTheme } = useConfigs();
+  const label = `${keyName}`;
+  const mainColor = useMemo(
+    () => theme.palette[keyName],
+    [theme.palette, keyName]
+  );
+  const randomColors = useMemo(() => getRandomColors(), []);
   const colorChangeHandler = ({ hex }: ColorResult) => {
     updateCustomTheme({
       palette: { [keyName]: hex },
-    })
-  }
+    });
+  };
 
   const popoverContent = (color: string) => (
     <TwitterPicker
@@ -47,12 +54,13 @@ const EditorColorItem: React.FC<React.PropsWithChildren<Props>> = ({ keyName }) 
       onChangeComplete={colorChangeHandler}
       colors={randomColors}
     />
-  )
+  );
   return (
     <Popover
       content={() => popoverContent(mainColor)}
       portalClassName="editor-popover"
-      offset={3}>
+      offset={3}
+    >
       <div className="editor-item">
         <div className="dot-box">
           <span className="dot" />
@@ -117,7 +125,7 @@ const EditorColorItem: React.FC<React.PropsWithChildren<Props>> = ({ keyName }) 
         `}</style>
       </div>
     </Popover>
-  )
-}
+  );
+};
 
-export default EditorColorItem
+export default EditorColorItem;

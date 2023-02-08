@@ -1,11 +1,11 @@
-import { Layout, Playground, Attributes } from 'lib/components'
-import { Radio, Spacer, Code } from 'components'
-import { useState } from 'react'
+import { Layout, Playground, Attributes } from "lib/components";
+import { Radio, Spacer, Code } from "@numen-ui/core";
+import { useState } from "react";
 
 export const meta = {
-  title: 'Radio',
-  group: 'Data Entry',
-}
+  title: "Radio",
+  group: "Data Entry",
+};
 
 ## Radio
 
@@ -140,9 +140,9 @@ Provides single user input from a selection of options.
 <Attributes.Title>RadioTypes</Attributes.Title>
 
 ```ts
-type RadioTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
+type RadioTypes = "default" | "secondary" | "success" | "warning" | "error";
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

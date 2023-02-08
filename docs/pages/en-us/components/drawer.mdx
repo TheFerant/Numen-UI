@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from 'lib/components'
-import { Drawer, Button } from 'components'
+import { Layout, Playground, Attributes } from "lib/components";
+import { Drawer, Button } from "@numen-ui/core";
 
 export const meta = {
-  title: 'Drawer',
-  group: 'Feedback',
-}
+  title: "Drawer",
+  group: "Feedback",
+};
 
 ## Drawer
 
@@ -97,9 +97,9 @@ An interactive element fixed to the edge of the screen.
 <Attributes.Title>DrawerPlacement</Attributes.Title>
 
 ```ts
-type DrawerPlacement = 'top' | 'bottom' | 'right' | 'left'
+type DrawerPlacement = "top" | "bottom" | "right" | "left";
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

@@ -12,7 +12,7 @@ import MenuMobile from "./menu-mobile";
 const StyledMenu = styled.div<SxProp>``;
 
 const Menu: React.FC<unknown> = () => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   const [expanded, setExpanded] = useState<boolean>(false);
   const [, setBodyHidden] = useBodyScroll(null, { delayReset: 300 });
   const isMobile = useMediaQuery("xs", { match: "down" });

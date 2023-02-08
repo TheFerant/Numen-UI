@@ -1,12 +1,12 @@
-import { ButtonDropdown, Spacer } from 'components'
-import { Playground, Attributes, Layout } from 'lib/components'
-import Plus from '@geist-ui/icons/plus'
+import { ButtonDropdown, Spacer } from "@numen-ui/core";
+import { Playground, Attributes, Layout } from "lib/components";
+import Plus from "@geist-ui/icons/plus";
 
 export const meta = {
-  title: 'Button Dropdown',
-  group: 'Navigation',
+  title: "Button Dropdown",
+  group: "Navigation",
   index: 101,
-}
+};
 
 ## Button Dropdown
 
@@ -126,9 +126,14 @@ Display related but alternate actions for a button.
 <Attributes.Title>ButtonDropdownTypes</Attributes.Title>
 
 ```ts
-type ButtonDropdownTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
+type ButtonDropdownTypes =
+  | "default"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error";
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

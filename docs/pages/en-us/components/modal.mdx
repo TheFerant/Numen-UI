@@ -1,11 +1,11 @@
-import { Layout, Playground, Attributes } from 'lib/components'
-import { Modal, Button, Code, useModal } from 'components'
-import { useState } from 'react'
+import { Layout, Playground, Attributes } from "lib/components";
+import { Modal, Button, Code, useModal } from "@numen-ui/core";
+import { useState } from "react";
 
 export const meta = {
-  title: 'Modal',
-  group: 'Feedback',
-}
+  title: "Modal",
+  group: "Feedback",
+};
 
 ## Modal
 
@@ -267,24 +267,24 @@ The Modal contain an additional Hooks, see subsection [useModal](/en-us/hooks/us
 
 ```ts
 type useModal = (initialVisible: boolean) => {
-  visible: boolean
-  setVisible: Dispatch<SetStateAction<boolean>>
-  currentRef: MutableRefObject<boolean>
+  visible: boolean;
+  setVisible: Dispatch<SetStateAction<boolean>>;
+  currentRef: MutableRefObject<boolean>;
   bindings: {
-    visible: boolean
-    onClose: () => void
-  }
-}
+    visible: boolean;
+    onClose: () => void;
+  };
+};
 ```
 
 <Attributes.Title>ModalActionEvent</Attributes.Title>
 
 ```ts
 type ModalActionEvent = MouseEvent<HTMLButtonElement> & {
-  close: () => void
-}
+  close: () => void;
+};
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

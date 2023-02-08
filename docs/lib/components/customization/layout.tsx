@@ -1,12 +1,12 @@
-import React from 'react'
-import { useTheme, Grid } from 'components'
-import CustomizationCodes from './codes'
-import Demo from './demo'
+import React from "react";
+import { useTheme, Grid } from "@numen-ui/core";
+import CustomizationCodes from "./codes";
+import Demo from "./demo";
 
 const CustomizationLayout: React.FC<React.PropsWithChildren<unknown>> = ({
   children,
 }) => {
-  const theme = useTheme()
+  const { theme } = useTheme();
 
   return (
     <div className="layout">
@@ -37,7 +37,7 @@ const CustomizationLayout: React.FC<React.PropsWithChildren<unknown>> = ({
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default CustomizationLayout
+export default CustomizationLayout;

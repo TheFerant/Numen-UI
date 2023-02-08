@@ -1,11 +1,11 @@
-import { Layout, Playground, Attributes } from 'lib/components'
-import { useInput, Input, Button, Spacer } from 'components'
+import { Layout, Playground, Attributes } from "lib/components";
+import { useInput, Input, Button, Spacer } from "@numen-ui/core";
 
 export const meta = {
-  title: 'useInput',
-  group: 'Enhancement',
+  title: "useInput",
+  group: "Enhancement",
   index: 10,
-}
+};
 
 ## useInput
 
@@ -36,15 +36,15 @@ Using this hooks behaves the same as if you had added `React.useState` manually.
 
 ```ts
 type useInput = (initialValue: string) => {
-  state: string
-  setState: Dispatch<SetStateAction<string>>
-  currentRef: MutableRefObject<string>
-  reset: () => void
+  state: string;
+  setState: Dispatch<SetStateAction<string>>;
+  currentRef: MutableRefObject<string>;
+  reset: () => void;
   bindings: {
-    value: string
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  }
-}
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  };
+};
 ```
 
 <Attributes.Title>KeyboardOptions</Attributes.Title>
@@ -59,4 +59,4 @@ type useInput = (initialValue: string) => {
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

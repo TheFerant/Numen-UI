@@ -1,13 +1,13 @@
-import { Layout, Playground, Attributes } from 'lib/components'
-import { Button, Spacer, Grid, Code } from 'components'
-import Settings from '@geist-ui/icons/settings'
-import UserX from '@geist-ui/icons/userX'
-import Power from '@geist-ui/icons/power'
+import { Layout, Playground, Attributes } from "lib/components";
+import { Button, Spacer, Grid, Code } from "@numen-ui/core";
+import Settings from "@geist-ui/icons/settings";
+import UserX from "@geist-ui/icons/userX";
+import Power from "@geist-ui/icons/power";
 
 export const meta = {
-  title: 'Button',
-  group: 'General',
-}
+  title: "Button",
+  group: "General",
+};
 
 ## Button
 
@@ -157,18 +157,18 @@ Used to trigger an operation.
 
 ```ts
 type ButtonTypes =
-  | 'default'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'abort'
-  | 'secondary-light'
-  | 'success-light'
-  | 'warning-light'
-  | 'error-light'
+  | "default"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error"
+  | "abort"
+  | "secondary-light"
+  | "success-light"
+  | "warning-light"
+  | "error-light";
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

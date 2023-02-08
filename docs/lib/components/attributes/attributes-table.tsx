@@ -1,8 +1,10 @@
-import { Card, useTheme } from '@numen-ui/core'
-import React from 'react'
+import { Card, useTheme } from "@numen-ui/core";
+import React from "react";
 
-const AttributesTable: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-  const theme = useTheme()
+const AttributesTable: React.FC<React.PropsWithChildren<unknown>> = ({
+  children,
+}) => {
+  const { theme } = useTheme();
 
   return (
     <Card className="attr">
@@ -80,7 +82,7 @@ const AttributesTable: React.FC<React.PropsWithChildren<unknown>> = ({ children 
         }
       `}</style>
     </Card>
-  )
-}
+  );
+};
 
-export default AttributesTable
+export default AttributesTable;

@@ -1,48 +1,56 @@
-import React, { useMemo } from 'react'
-import { isObject } from 'components/themes/themes'
-import { LiveEditor, LiveProvider } from 'react-live'
-import { useConfigs } from 'lib/config-context'
-import { CUSTOM_THEME_TYPE } from 'lib/constants'
-import CopyIcon from 'components/snippet/snippet-icon'
-import makeCodeTheme from 'lib/components/playground/code-theme'
-import { Text, Spacer, useTheme, Code, useToasts, Themes, useClipboard } from 'components'
+import React, { useMemo } from "react";
+import { isObject } from "components/themes/themes";
+import { LiveEditor, LiveProvider } from "react-live";
+import { useConfigs } from "lib/config-context";
+import { CUSTOM_THEME_TYPE } from "lib/constants";
+import CopyIcon from "components/snippet/snippet-icon";
+import makeCodeTheme from "lib/components/playground/code-theme";
+import {
+  Text,
+  Spacer,
+  useTheme,
+  Code,
+  useToasts,
+  Themes,
+  useClipboard,
+} from "@numen-ui/core";
 
 export const getDeepDifferents = <T,>(source: T, target: T): T => {
-  if (!isObject(target) || !isObject(source)) return target
+  if (!isObject(target) || !isObject(source)) return target;
 
-  const sourceKeys = Object.keys(source) as Array<keyof T>
-  let result = {} as T
+  const sourceKeys = Object.keys(source) as Array<keyof T>;
+  let result = {} as T;
   for (const key of sourceKeys) {
-    const sourceValue = source[key]
-    const targetValue = target[key]
+    const sourceValue = source[key];
+    const targetValue = target[key];
 
     if (isObject(sourceValue) && isObject(targetValue)) {
-      const childrenDiff = getDeepDifferents(sourceValue, { ...targetValue })
+      const childrenDiff = getDeepDifferents(sourceValue, { ...targetValue });
       if (Object.keys(childrenDiff).length !== 0) {
-        result[key] = childrenDiff
+        result[key] = childrenDiff;
       }
     } else if (sourceValue !== targetValue) {
-      result[key] = targetValue
+      result[key] = targetValue;
     }
   }
-  return result
-}
+  return result;
+};
 
 const CustomizationCodes: React.FC<unknown> = () => {
-  const DefaultTheme = Themes.getPresetStaticTheme()
-  const theme = useTheme()
+  const DefaultTheme = Themes.getPresetStaticTheme();
+  const { theme } = useTheme();
 
-  const codeTheme = makeCodeTheme(theme)
-  const { copy } = useClipboard()
-  const { setToast } = useToasts()
+  const codeTheme = makeCodeTheme(theme);
+  const { copy } = useClipboard();
+  const { setToast } = useToasts();
 
   const deepDifferents = useMemo(
     () => ({
       ...getDeepDifferents(DefaultTheme, theme),
       type: CUSTOM_THEME_TYPE,
     }),
-    [DefaultTheme, theme],
-  )
+    [DefaultTheme, theme]
+  );
   const userCodes = useMemo(() => {
     return `const myTheme = ${JSON.stringify(deepDifferents, null, 2)}
 
@@ -57,25 +65,27 @@ const CustomizationCodes: React.FC<unknown> = () => {
  *      </GeistProvider>
  *    )
  *  }
- **/`
-  }, [deepDifferents])
+ **/`;
+  }, [deepDifferents]);
 
   const copyCode = () => {
-    copy(userCodes)
-    setToast({ text: 'Theme code copied.' })
-  }
+    copy(userCodes);
+    setToast({ text: "Theme code copied." });
+  };
 
   return (
     <div className="custom-codes">
-      <h3 className="title">{isChinese ? '主题代码' : 'Theme Codes'}</h3>
+      <h3 className="title">{isChinese ? "主题代码" : "Theme Codes"}</h3>
       <Spacer h={1} />
       {isChinese ? (
         <Text>
-          这里是你所有的变更，点击 <Code>copy</Code> 按钮即可使用在你自己的项目中。
+          这里是你所有的变更，点击 <Code>copy</Code>{" "}
+          按钮即可使用在你自己的项目中。
         </Text>
       ) : (
         <Text>
-          This is all your changes, click <Code>copy</Code> to use it in your own project.
+          This is all your changes, click <Code>copy</Code> to use it in your
+          own project.
         </Text>
       )}
       <Spacer h={2} />
@@ -145,7 +155,7 @@ const CustomizationCodes: React.FC<unknown> = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default CustomizationCodes
+export default CustomizationCodes;

@@ -1,11 +1,11 @@
-import { Layout, Playground, Attributes } from 'lib/components'
-import { Text } from 'components'
+import { Layout, Playground, Attributes } from "lib/components";
+import { Text } from "@numen-ui/core";
 
 export const meta = {
-  title: 'Text',
-  group: 'General',
+  title: "Text",
+  group: "General",
   index: 10,
-}
+};
 
 ## Text
 
@@ -126,9 +126,9 @@ Display text using well-defined typographic styles.
 <Attributes.Title>TextTypes</Attributes.Title>
 
 ```ts
-type TextTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
+type TextTypes = "default" | "secondary" | "success" | "warning" | "error";
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

@@ -1,11 +1,11 @@
-import { Code, Display } from 'components'
-import { Layout, Colors } from 'lib/components'
+import { Code, Display } from "@numen-ui/core";
+import { Layout, Colors } from "lib/components";
 
 export const meta = {
-  title: 'Colors',
-  group: 'Customization',
+  title: "Colors",
+  group: "Customization",
   index: 20,
-}
+};
 
 ## Colors
 
@@ -19,13 +19,13 @@ If you want to customize your colors, please read [use-theme](/en-us/hooks/use-t
 <Display width="90%" caption={<span>Get palette from <Code>useTheme</Code>.</span>}>
 
 ```jsx
-import { useTheme } from '@geist-ui/core'
+import { useTheme } from "@geist-ui/core";
 
 const myComponent = () => {
-  const { palette } = useTheme()
+  const { palette } = useTheme();
 
-  return <p style={{ color: palette.accents_1 }}>myComponent</p>
-}
+  return <p style={{ color: palette.accents_1 }}>myComponent</p>;
+};
 ```
 
 </Display>
@@ -59,4 +59,4 @@ Use different colors to express more emotional changes.
 
 <Colors type="highlight" />
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

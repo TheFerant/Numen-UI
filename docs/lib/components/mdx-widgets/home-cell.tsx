@@ -1,16 +1,16 @@
-import React from 'react'
-import { Card, Link, useTheme } from 'components'
-import NextLink from 'next/link'
+import React from "react";
+import { Card, Link, useTheme } from "@numen-ui/core";
+import NextLink from "next/link";
 
 export type HomeCellProps = {
-  url: string
-  title: string
-  desc: string
-  icon: React.ReactNode
-}
+  url: string;
+  title: string;
+  desc: string;
+  icon: React.ReactNode;
+};
 
 const HomeCell: React.FC<HomeCellProps> = ({ url, title, desc, icon }) => {
-  const theme = useTheme()
+  const { theme } = useTheme();
   return (
     <NextLink href={url} passHref>
       <Link>
@@ -49,7 +49,7 @@ const HomeCell: React.FC<HomeCellProps> = ({ url, title, desc, icon }) => {
         `}</style>
       </Link>
     </NextLink>
-  )
-}
+  );
+};
 
-export default HomeCell
+export default HomeCell;

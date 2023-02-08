@@ -1,11 +1,11 @@
-import { Layout, Playground, Attributes } from 'lib/components'
-import { Badge, Spacer, Avatar, Button, Link, useTheme } from 'components'
-import NextLink from 'next/link'
+import { Layout, Playground, Attributes } from "lib/components";
+import { Badge, Spacer, Avatar, Button, Link, useTheme } from "@numen-ui/core";
+import NextLink from "next/link";
 
 export const meta = {
-  title: 'Badge',
-  group: 'Data Display',
-}
+  title: "Badge",
+  group: "Data Display",
+};
 
 ## Badge
 
@@ -42,7 +42,7 @@ Display an indicator that requires attention.
   title="Custom color"
   desc={
     <>
-      For more colors, please refer to the{' '}
+      For more colors, please refer to the{" "}
       <NextLink href="/en-us/guide/colors">
         <Link color>color section</Link>
       </NextLink>
@@ -52,7 +52,7 @@ Display an indicator that requires attention.
   scope={{ Badge, Spacer, useTheme }}
   code={`
 () => {
-  const theme = useTheme()
+  const { theme } = useTheme()
   return (
     <>
       <Badge style={{ backgroundColor: theme.palette.successLight }}>Success Light</Badge> <Spacer h={.5} />
@@ -120,15 +120,15 @@ Display an indicator that requires attention.
 <Attributes.Title>BadgeTypes</Attributes.Title>
 
 ```ts
-type BadgeTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
+type BadgeTypes = "default" | "secondary" | "success" | "warning" | "error";
 ```
 
 <Attributes.Title>AnchorPlacement</Attributes.Title>
 
 ```ts
-type AnchorPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'
+type AnchorPlacement = "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

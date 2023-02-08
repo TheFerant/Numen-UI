@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
-import { Card, Input, useInput, Modal, useModal, Snippet } from 'components'
-import * as Icons from '@geist-ui/icons'
-import IconsCell, { getImportString } from './icons-cell'
-import { useConfigs } from 'lib/config-context'
+import React, { useState } from "react";
+import {
+  Card,
+  Input,
+  useInput,
+  Modal,
+  useModal,
+  Snippet,
+} from "@numen-ui/core";
+import * as Icons from "@geist-ui/icons";
+import IconsCell, { getImportString } from "./icons-cell";
+import { useConfigs } from "lib/config-context";
 
-const ImportSnippet: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
+const ImportSnippet: React.FC<React.PropsWithChildren<unknown>> = ({
+  children,
+}) => {
   return (
     <Snippet>
       {children}
@@ -14,31 +23,34 @@ const ImportSnippet: React.FC<React.PropsWithChildren<unknown>> = ({ children })
         }
       `}</style>
     </Snippet>
-  )
-}
+  );
+};
 
 const IconsGallery: React.FC<unknown> = () => {
-
-  const { setVisible, bindings: modalBindings } = useModal()
-  const { state: query, bindings } = useInput('')
-  const [importStr, setImportStr] = useState({ title: '', single: '', normal: '' })
+  const { setVisible, bindings: modalBindings } = useModal();
+  const { state: query, bindings } = useInput("");
+  const [importStr, setImportStr] = useState({
+    title: "",
+    single: "",
+    normal: "",
+  });
   const icons = Object.entries(Icons).filter(
-    ([name]) => !query || name.toLowerCase().includes(query.toLowerCase()),
-  )
+    ([name]) => !query || name.toLowerCase().includes(query.toLowerCase())
+  );
   const onCellClick = (name: string) => {
-    const { single, normal } = getImportString(name)
-    setImportStr({ title: name, single, normal })
-    setVisible(true)
-  }
+    const { single, normal } = getImportString(name);
+    setImportStr({ title: name, single, normal });
+    setVisible(true);
+  };
 
   return (
     <>
-      <h3 className="title">{isChinese ? '图标画廊' : 'Icons Gallery'}</h3>
+      <h3 className="title">{isChinese ? "图标画廊" : "Icons Gallery"}</h3>
       <Card>
         <Input
           width="100%"
           icon={<Icons.Search />}
-          placeholder={isChinese ? '搜索' : 'Search'}
+          placeholder={isChinese ? "搜索" : "Search"}
           {...bindings}
         />
         <div className="icons-grid">
@@ -54,9 +66,9 @@ const IconsGallery: React.FC<unknown> = () => {
         <Modal {...modalBindings}>
           <Modal.Title>{importStr.title}</Modal.Title>
           <Modal.Content>
-            <p>{isChinese ? '引入:' : 'Import:'}</p>
+            <p>{isChinese ? "引入:" : "Import:"}</p>
             <ImportSnippet>{importStr.normal}</ImportSnippet>
-            <p>{isChinese ? '引入单个组件:' : 'Import single component:'}</p>
+            <p>{isChinese ? "引入单个组件:" : "Import single component:"}</p>
             <ImportSnippet>{importStr.single}</ImportSnippet>
           </Modal.Content>
         </Modal>
@@ -80,7 +92,7 @@ const IconsGallery: React.FC<unknown> = () => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default IconsGallery
+export default IconsGallery;

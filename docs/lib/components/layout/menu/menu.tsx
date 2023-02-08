@@ -1,90 +1,105 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { useRouter } from 'next/router'
-import NextLink from 'next/link'
-import { Controls } from 'lib/components/pures'
-import { useConfigs } from 'lib/config-context'
-import { useBodyScroll, useTheme, Button, Image, useMediaQuery, Tabs } from 'components'
-import { addColorAlpha } from 'components/utils/color'
-import MenuIcon from '@geist-ui/icons/menu'
-import MenuMobile from './menu-mobile'
-import Metadata from 'lib/data'
-import useLocale from 'lib/use-locale'
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/router";
+import NextLink from "next/link";
+import { Controls } from "lib/components/pures";
+import { useConfigs } from "lib/config-context";
+import {
+  useBodyScroll,
+  useTheme,
+  Button,
+  Image,
+  useMediaQuery,
+  Tabs,
+} from "@numen-ui/core";
+import { addColorAlpha } from "components/utils/color";
+import MenuIcon from "@geist-ui/icons/menu";
+import MenuMobile from "./menu-mobile";
+import Metadata from "lib/data";
+import useLocale from "lib/use-locale";
 
 const Menu: React.FC<unknown> = () => {
-  const router = useRouter()
-  const theme = useTheme()
+  const router = useRouter();
+  const { theme } = useTheme();
 
-  const { tabbar: currentUrlTabValue, locale } = useLocale()
-  const [expanded, setExpanded] = useState<boolean>(false)
-  const [, setBodyHidden] = useBodyScroll(null, { delayReset: 300 })
-  const isMobile = useMediaQuery('xs', { match: 'down' })
-  const allSides = useMemo(() => Metadata[locale], [locale])
+  const { tabbar: currentUrlTabValue, locale } = useLocale();
+  const [expanded, setExpanded] = useState<boolean>(false);
+  const [, setBodyHidden] = useBodyScroll(null, { delayReset: 300 });
+  const isMobile = useMediaQuery("xs", { match: "down" });
+  const allSides = useMemo(() => Metadata[locale], [locale]);
 
   useEffect(() => {
     const prefetch = async () => {
       const urls = isChinese
-        ? ['/zh-cn/guide/introduction', '/zh-cn/components/text', '/zh-cn/customization']
-        : ['/en-us/guide/introduction', '/en-us/components/text', '/en-us/customization']
+        ? [
+            "/zh-cn/guide/introduction",
+            "/zh-cn/components/text",
+            "/zh-cn/customization",
+          ]
+        : [
+            "/en-us/guide/introduction",
+            "/en-us/components/text",
+            "/en-us/customization",
+          ];
       await Promise.all(
-        urls.map(async url => {
-          await router.prefetch(url)
-        }),
-      )
-    }
+        urls.map(async (url) => {
+          await router.prefetch(url);
+        })
+      );
+    };
     prefetch()
       .then()
-      .catch(err => console.log(err))
-  }, [isChinese])
+      .catch((err) => console.log(err));
+  }, [isChinese]);
 
   useEffect(() => {
-    setBodyHidden(expanded)
-  }, [expanded])
+    setBodyHidden(expanded);
+  }, [expanded]);
 
   useEffect(() => {
     if (!isMobile) {
-      setExpanded(false)
+      setExpanded(false);
     }
-  }, [isMobile])
+  }, [isMobile]);
 
   useEffect(() => {
     const handleRouteChange = () => {
-      setExpanded(false)
-    }
+      setExpanded(false);
+    };
 
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => router.events.off('routeChangeComplete', handleRouteChange)
-  }, [router.events])
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => router.events.off("routeChangeComplete", handleRouteChange);
+  }, [router.events]);
 
   const handleTabChange = useCallback(
     (tab: string) => {
-      const shouldRedirectDefaultPage = currentUrlTabValue !== tab
-      if (!shouldRedirectDefaultPage) return
-      const defaultPath = `/${locale}/${tab}`
-      router.push(defaultPath)
+      const shouldRedirectDefaultPage = currentUrlTabValue !== tab;
+      if (!shouldRedirectDefaultPage) return;
+      const defaultPath = `/${locale}/${tab}`;
+      router.push(defaultPath);
     },
-    [currentUrlTabValue, locale],
-  )
-  const [isLocked, setIsLocked] = useState<boolean>(false)
+    [currentUrlTabValue, locale]
+  );
+  const [isLocked, setIsLocked] = useState<boolean>(false);
 
   useEffect(() => {
     const handler = () => {
-      const isLocked = document.body.style.overflow === 'hidden'
-      setIsLocked(last => (last !== isLocked ? isLocked : last))
-    }
-    const observer = new MutationObserver(mutations => {
+      const isLocked = document.body.style.overflow === "hidden";
+      setIsLocked((last) => (last !== isLocked ? isLocked : last));
+    };
+    const observer = new MutationObserver((mutations) => {
       mutations.forEach(function (mutation) {
-        if (mutation.type !== 'attributes') return
-        handler()
-      })
-    })
+        if (mutation.type !== "attributes") return;
+        handler();
+      });
+    });
 
     observer.observe(document.body, {
       attributes: true,
-    })
+    });
     return () => {
-      observer.disconnect()
-    }
-  }, [])
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <>
@@ -115,8 +130,13 @@ const Menu: React.FC<unknown> = () => {
                 align="center"
                 hideDivider
                 hideBorder
-                onChange={handleTabChange}>
-                <Tabs.Item font="14px" label={isChinese ? '主页' : 'Home'} value="" />
+                onChange={handleTabChange}
+              >
+                <Tabs.Item
+                  font="14px"
+                  label={isChinese ? "主页" : "Home"}
+                  value=""
+                />
                 {allSides.map((tab, index) => (
                   <Tabs.Item
                     font="14px"
@@ -134,7 +154,8 @@ const Menu: React.FC<unknown> = () => {
                   className="menu-toggle"
                   auto
                   type="abort"
-                  onClick={() => setExpanded(!expanded)}>
+                  onClick={() => setExpanded(!expanded)}
+                >
                   <MenuIcon size="1.125rem" />
                 </Button>
               ) : (
@@ -155,14 +176,14 @@ const Menu: React.FC<unknown> = () => {
           top: 0;
           left: 0;
           right: 0;
-          padding-right: ${isLocked ? 'var(--geist-page-scrollbar-width)' : 0};
+          padding-right: ${isLocked ? "var(--geist-page-scrollbar-width)" : 0};
           height: var(--geist-page-nav-height);
           //width: 100%;
           backdrop-filter: saturate(180%) blur(5px);
           background-color: ${addColorAlpha(theme.palette.background, 0.8)};
-          box-shadow: ${theme.type === 'dark'
-            ? '0 0 0 1px #333'
-            : '0 0 15px 0 rgba(0, 0, 0, 0.1)'};
+          box-shadow: ${theme.type === "dark"
+            ? "0 0 0 1px #333"
+            : "0 0 15px 0 rgba(0, 0, 0, 0.1)"};
           z-index: 999;
         }
         nav .content {
@@ -221,7 +242,7 @@ const Menu: React.FC<unknown> = () => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

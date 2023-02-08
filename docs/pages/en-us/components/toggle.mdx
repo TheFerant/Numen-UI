@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from 'lib/components'
-import { Toggle, Spacer } from 'components'
+import { Layout, Playground, Attributes } from "lib/components";
+import { Toggle, Spacer } from "@numen-ui/core";
 
 export const meta = {
-  title: 'Toggle',
-  group: 'Data Entry',
-}
+  title: "Toggle",
+  group: "Data Entry",
+};
 
 ## Toggle
 
@@ -81,23 +81,23 @@ Displays a boolean value.
 
 ```ts
 interface ToggleEventTarget {
-  checked: boolean
+  checked: boolean;
 }
 
 export interface ToggleEvent {
-  target: ToggleEventTarget
-  stopPropagation: () => void
-  preventDefault: () => void
-  nativeEvent: React.ChangeEvent
+  target: ToggleEventTarget;
+  stopPropagation: () => void;
+  preventDefault: () => void;
+  nativeEvent: React.ChangeEvent;
 }
 ```
 
 <Attributes.Title>ToggleTypes</Attributes.Title>
 
 ```ts
-type ToggleTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
+type ToggleTypes = "default" | "secondary" | "success" | "warning" | "error";
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

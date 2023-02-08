@@ -1,31 +1,34 @@
-import React, { useMemo } from 'react'
-import { useTheme, Input, GeistUIThemes } from 'components'
-import { useConfigs } from 'lib/config-context'
+import React, { useMemo } from "react";
+import { useTheme, Input, GeistUIThemes } from "@numen-ui/core";
+import { useConfigs } from "lib/config-context";
 
 type Props = {
-  value?: string
-  groupName: keyof GeistUIThemes
-  keyName: string
-}
+  value?: string;
+  groupName: keyof GeistUIThemes;
+  keyName: string;
+};
 
 const EditorInputItem: React.FC<React.PropsWithChildren<Props>> = ({
   groupName,
   keyName,
 }) => {
-  const theme = useTheme()
-  const { updateCustomTheme } = useConfigs()
+  const { theme } = useTheme();
+  const { updateCustomTheme } = useConfigs();
   const currentVal = useMemo(() => {
-    const group = theme[groupName]
-    const key = keyName as keyof typeof group
-    return theme[groupName][key]
-  }, [theme.expressiveness, keyName])
-  const width = useMemo(() => (`${currentVal}`.length > 15 ? '350px' : 'auto'), [])
+    const group = theme[groupName];
+    const key = keyName as keyof typeof group;
+    return theme[groupName][key];
+  }, [theme.expressiveness, keyName]);
+  const width = useMemo(
+    () => (`${currentVal}`.length > 15 ? "350px" : "auto"),
+    []
+  );
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     updateCustomTheme({
       [groupName]: { [keyName]: event.target.value },
-    })
-  }
+    });
+  };
 
   return (
     <div className="editor-item">
@@ -55,7 +58,7 @@ const EditorInputItem: React.FC<React.PropsWithChildren<Props>> = ({
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default EditorInputItem
+export default EditorInputItem;

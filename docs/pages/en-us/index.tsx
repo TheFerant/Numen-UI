@@ -1,13 +1,13 @@
-import React from 'react'
-import { NextPage } from 'next'
-import { useTheme, Grid } from 'components'
-import PackageIcon from '@geist-ui/icons/package'
-import FeatherIcon from '@geist-ui/icons/feather'
-import GitHubIcon from '@geist-ui/icons/github'
-import { HomeCell } from 'lib/components'
+import React from "react";
+import { NextPage } from "next";
+import { useTheme, Grid } from "@numen-ui/core";
+import PackageIcon from "@geist-ui/icons/package";
+import FeatherIcon from "@geist-ui/icons/feather";
+import GitHubIcon from "@geist-ui/icons/github";
+import { HomeCell } from "lib/components";
 
 const Application: NextPage<{}> = () => {
-  const theme = useTheme()
+  const { theme } = useTheme();
 
   return (
     <>
@@ -15,7 +15,8 @@ const Application: NextPage<{}> = () => {
         <div className="hero">
           <h1 className="title">Geist</h1>
           <h3 className="desc">
-            An open source design system for building modern websites and applications.
+            An open source design system for building modern websites and
+            applications.
           </h3>
         </div>
 
@@ -78,7 +79,7 @@ const Application: NextPage<{}> = () => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Application
+export default Application;

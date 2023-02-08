@@ -32,7 +32,7 @@ const CardComponent: React.FC<React.PropsWithChildren<CardProps>> = ({
   type,
   ...props
 }: CardProps & typeof defaultProps) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   const hoverShadow = useMemo(() => {
     if (shadow) return theme.resolvedColorScheme.shadowMedium;
     return hoverable ? theme.expressiveness.shadowSmall : "none";

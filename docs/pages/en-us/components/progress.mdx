@@ -1,11 +1,11 @@
-import { Layout, Playground, Attributes } from 'lib/components'
-import { Progress, Spacer, useTheme, Button } from 'components'
-import { useState } from 'react'
+import { Layout, Playground, Attributes } from "lib/components";
+import { Progress, Spacer, useTheme, Button } from "@numen-ui/core";
+import { useState } from "react";
 
 export const meta = {
-  title: 'Progress',
-  group: 'Feedback',
-}
+  title: "Progress",
+  group: "Feedback",
+};
 
 ## Progress
 
@@ -33,7 +33,7 @@ Display progress relative to a limit or related to a task.
   scope={{ Progress, useState, useTheme, Button, Spacer }}
   code={`
 () => {
-  const theme = useTheme()
+  const { theme } = useTheme()
   const [value, setValue] = useState(20)
   const colors = {
     20: theme.palette.error,
@@ -87,9 +87,9 @@ Display progress relative to a limit or related to a task.
 <Attributes.Title>ProgressTypes</Attributes.Title>
 
 ```ts
-type ProgressTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
+type ProgressTypes = "default" | "secondary" | "success" | "warning" | "error";
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

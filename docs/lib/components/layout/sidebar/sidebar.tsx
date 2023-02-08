@@ -1,48 +1,50 @@
-import React, { useEffect, useMemo, useRef } from 'react'
-import Router from 'next/router'
-import { useTheme, Spacer } from 'components'
-import SideItem, { Sides } from './side-item'
-import useLocale from 'lib/use-locale'
-import { useConfigs } from 'lib/config-context'
-import Metadata from 'lib/data'
+import React, { useEffect, useMemo, useRef } from "react";
+import Router from "next/router";
+import { useTheme, Spacer } from "@numen-ui/core";
+import SideItem, { Sides } from "./side-item";
+import useLocale from "lib/use-locale";
+import { useConfigs } from "lib/config-context";
+import Metadata from "lib/data";
 
 export interface Props {}
 
-export type SideChildren = Sides | Array<Sides>
+export type SideChildren = Sides | Array<Sides>;
 
-export const SideGroup: React.FC<{ sides?: SideChildren }> = React.memo(({ sides }) => {
-  if (!sides) return null
-  sides = Array.isArray(sides) ? sides : [sides]
-  return (
-    <SideItem sides={sides}>
-      <SideGroup />
-    </SideItem>
-  )
-})
+export const SideGroup: React.FC<{ sides?: SideChildren }> = React.memo(
+  ({ sides }) => {
+    if (!sides) return null;
+    sides = Array.isArray(sides) ? sides : [sides];
+    return (
+      <SideItem sides={sides}>
+        <SideGroup />
+      </SideItem>
+    );
+  }
+);
 
 export const Sidebar: React.FC<Props> = React.memo(() => {
-  const theme = useTheme()
-  const boxRef = useRef<HTMLDivElement>(null)
-  const { sidebarScrollHeight, updateSidebarScrollHeight } = useConfigs()
-  const { locale, tabbar } = useLocale()
+  const { theme } = useTheme();
+  const boxRef = useRef<HTMLDivElement>(null);
+  const { sidebarScrollHeight, updateSidebarScrollHeight } = useConfigs();
+  const { locale, tabbar } = useLocale();
 
   const tabbarData = useMemo(() => {
-    const allSides = Metadata[locale]
-    const currentSide = allSides.find(side => side.name === tabbar)
-    return (currentSide?.children || []) as Array<Sides>
-  }, [locale, tabbar])
+    const allSides = Metadata[locale];
+    const currentSide = allSides.find((side) => side.name === tabbar);
+    return (currentSide?.children || []) as Array<Sides>;
+  }, [locale, tabbar]);
 
   useEffect(() => {
-    Router.events.on('routeChangeStart', () => {
-      if (!boxRef.current) return
-      updateSidebarScrollHeight(boxRef.current.scrollTop || 0)
-    })
-  }, [])
+    Router.events.on("routeChangeStart", () => {
+      if (!boxRef.current) return;
+      updateSidebarScrollHeight(boxRef.current.scrollTop || 0);
+    });
+  }, []);
 
   useEffect(() => {
-    if (!boxRef.current) return
-    boxRef.current.scrollTo({ top: sidebarScrollHeight })
-  }, [boxRef.current])
+    if (!boxRef.current) return;
+    boxRef.current.scrollTo({ top: sidebarScrollHeight });
+  }, [boxRef.current]);
 
   return (
     <div ref={boxRef} className="sides box">
@@ -72,7 +74,7 @@ export const Sidebar: React.FC<Props> = React.memo(() => {
         }
       `}</style>
     </div>
-  )
-})
+  );
+});
 
-export default Sidebar
+export default Sidebar;

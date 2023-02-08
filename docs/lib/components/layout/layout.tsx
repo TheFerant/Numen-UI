@@ -1,21 +1,21 @@
-import React from 'react'
-import PageHeader from './header'
-import Sidebar from './sidebar'
-import PoweredBy from './powered-by'
-import {useTheme} from '@numen-ui/core'
+import React from "react";
+import PageHeader from "./header";
+import Sidebar from "./sidebar";
+import PoweredBy from "./powered-by";
+import { useTheme } from "@numen-ui/core";
 
 export interface Meta {
-  title: string
+  title: string;
 }
 
 export interface LayoutProps {
-  meta: Meta
-  getStaticProps?: any
+  meta: Meta;
+  getStaticProps?: any;
 }
 
-export const Layout: React.FC<React.PropsWithChildren<LayoutProps>> = React.memo(
-  ({ children, meta }) => {
-    const theme = useTheme()
+export const Layout: React.FC<React.PropsWithChildren<LayoutProps>> =
+  React.memo(({ children, meta }) => {
+    const { theme } = useTheme();
 
     return (
       <div className="layout">
@@ -90,8 +90,7 @@ export const Layout: React.FC<React.PropsWithChildren<LayoutProps>> = React.memo
           }
         `}</style>
       </div>
-    )
-  },
-)
+    );
+  });
 
-export default Layout
+export default Layout;

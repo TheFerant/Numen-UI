@@ -1,25 +1,25 @@
-import React from 'react'
-import { VirtualAnchor } from '../pures'
-import { Code, useTheme } from '@numen-ui/core'
+import React from "react";
+import { VirtualAnchor } from "../pures";
+import { Code, useTheme } from "@numen-ui/core";
 
 export interface AttributesTitleProps {
-  alias?: string
+  alias?: string;
 }
 
 const getAlias = (alias?: string) => {
-  if (!alias) return null
+  if (!alias) return null;
   return (
     <small>
       <span>[</span>
       alias: <Code>{alias}</Code>
       <span>]</span>
     </small>
-  )
-}
+  );
+};
 
 const AttributesTitle: React.FC<React.PropsWithChildren<AttributesTitleProps>> =
   React.memo(({ children, alias }) => {
-    const theme = useTheme()
+    const { theme } = useTheme();
 
     return (
       <>
@@ -55,7 +55,7 @@ const AttributesTitle: React.FC<React.PropsWithChildren<AttributesTitleProps>> =
           }
         `}</style>
       </>
-    )
-  })
+    );
+  });
 
-export default AttributesTitle
+export default AttributesTitle;

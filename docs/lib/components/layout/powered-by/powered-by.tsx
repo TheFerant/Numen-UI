@@ -1,5 +1,5 @@
-import React from 'react'
-import { Text, Link } from 'components'
+import React from "react";
+import { Text, Link } from "@numen-ui/core";
 
 const PoweredBy: React.FC<unknown> = () => {
   return (
@@ -25,7 +25,7 @@ const PoweredBy: React.FC<unknown> = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default PoweredBy
+export default PoweredBy;

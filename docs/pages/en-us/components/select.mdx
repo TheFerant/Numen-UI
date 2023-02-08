@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from 'lib/components'
-import { Select, Spacer, Code, Modal, useModal, Button } from 'components'
+import { Layout, Playground, Attributes } from "lib/components";
+import { Select, Spacer, Code, Modal, useModal, Button } from "@numen-ui/core";
 
 export const meta = {
-  title: 'Select',
-  group: 'Data Entry',
-}
+  title: "Select",
+  group: "Data Entry",
+};
 
 ## Select
 
@@ -261,18 +261,18 @@ The Select contain an additional Hooks, see subsection [useModal](/en-us/hooks/u
 
 ```ts
 type SelectRef = {
-  focus: () => void
-  blur: () => void
-  scrollTo?: (options?: ScrollToOptions) => void
-}
+  focus: () => void;
+  blur: () => void;
+  scrollTo?: (options?: ScrollToOptions) => void;
+};
 ```
 
 <Attributes.Title>SelectTypes</Attributes.Title>
 
 ```ts
-type SelectTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
+type SelectTypes = "default" | "secondary" | "success" | "warning" | "error";
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

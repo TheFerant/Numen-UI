@@ -1,58 +1,58 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import { Avatar, Link, Tooltip } from '@numen-ui/core'
-import { CONTRIBUTORS_URL, GITHUB_URL } from 'lib/constants'
-const RepoMasterURL = `${GITHUB_URL}/blob/master`
+import React, { useEffect, useMemo, useState } from "react";
+import { Avatar, Link, Tooltip } from "@numen-ui/core";
+import { CONTRIBUTORS_URL, GITHUB_URL } from "lib/constants";
+const RepoMasterURL = `${GITHUB_URL}/blob/master`;
 
 export interface Contributor {
-  name: string
-  avatar: string
-  url: string
+  name: string;
+  avatar: string;
+  url: string;
 }
 
 interface Props {
-  path: string
+  path: string;
 }
 
 const getContributors = async (path: string): Promise<Array<Contributor>> => {
-  try {
-    const response = await fetch(`${CONTRIBUTORS_URL}?path=${path}`)
-    if (!response.ok || response.status === 204) return []
-    return response.json()
-  } catch (e) {
-    return []
-  }
-}
+  // try {
+  //   const response = await fetch(`${CONTRIBUTORS_URL}?path=${path}`)
+  //   if (!response.ok || response.status === 204) return []
+  //   return response.json()
+  // } catch (e) {
+  // }
+  return [];
+};
 
 const Contributors: React.FC<Props> = ({ path }) => {
-
-  const [users, setUsers] = useState<Array<Contributor>>([])
-  const link = useMemo(() => `${RepoMasterURL}/${path || '/pages'}`, [])
+  const [users, setUsers] = useState<Array<Contributor>>([]);
+  const link = useMemo(() => `${RepoMasterURL}/${path || "/pages"}`, []);
 
   useEffect(() => {
-    let unmount = false
-    ;(async () => {
-      const contributors = await getContributors(path)
-      if (unmount) return
-      setUsers(contributors)
-    })()
+    let unmount = false;
+    (async () => {
+      const contributors = await getContributors(path);
+      if (unmount) return;
+      setUsers(contributors);
+    })();
     return () => {
-      unmount = true
-    }
-  }, [])
+      unmount = true;
+    };
+  }, []);
 
   return (
     <div className="contributors">
       {users.map((user, index) => (
-        <Tooltip leaveDelay={0} text={<b>{user.name}</b>} key={`${user.url}-${index}`}>
+        <Tooltip
+          leaveDelay={0}
+          text={<b>{user.name}</b>}
+          key={`${user.url}-${index}`}
+        >
           <Link color target="_blank" rel="nofollow" href={user.url}>
             <Avatar src={user.avatar} />
           </Link>
         </Tooltip>
       ))}
-      <Tooltip
-        leaveDelay={0}
-        text={isChinese ? '在 GitHub 上编辑此页面' : 'Edit this page on GitHub'}
-        type="dark">
+      <Tooltip leaveDelay={0} text={"Edit this page on GitHub"} type="dark">
         <Link color target="_blank" rel="nofollow" href={link}>
           <Avatar text="Add" />
         </Link>
@@ -72,7 +72,7 @@ const Contributors: React.FC<Props> = ({ path }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Contributors
+export default Contributors;
