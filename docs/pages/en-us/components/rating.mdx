@@ -1,12 +1,12 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Rating, Grid, Spacer } from "@numen-ui/core";
-import { useState } from "react";
-import { Award, Github } from "@geist-ui/icons";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Rating, Grid, Spacer } from 'components'
+import { useState } from 'react'
+import { Award, Github } from '@geist-ui/icons'
 
 export const meta = {
-  title: "Rating",
-  group: "Feedback",
-};
+  title: 'Rating',
+  group: 'Feedback',
+}
 
 ## Rating
 
@@ -96,21 +96,21 @@ Display an indicator of rankings with stars.
 <Attributes.Title>RatingTypes</Attributes.Title>
 
 ```ts
-type RatingTypes = "default" | "secondary" | "success" | "warning" | "error";
+type RatingTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
 ```
 
 <Attributes.Title>RatingCount</Attributes.Title>
 
 ```ts
-type RatingCount = 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+type RatingCount = 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
 ```
 
 <Attributes.Title>RatingValue</Attributes.Title>
 
 ```ts
-type RatingValue = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+type RatingValue = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

@@ -1,19 +1,19 @@
-import React from "react";
-import { LivePreview, LiveProvider, LiveError } from "react-live";
-import { useTheme } from "@numen-ui/core";
-import makeCodeTheme from "./code-theme";
-import Editor from "./editor";
+import React from 'react'
+import { LivePreview, LiveProvider, LiveError } from 'react-live'
+import { useTheme } from 'components'
+import makeCodeTheme from './code-theme'
+import Editor from './editor'
 
 export interface Props {
-  code: string;
+  code: string
   scope: {
-    [key: string]: any;
-  };
+    [key: string]: any
+  }
 }
 
 const DynamicLive: React.FC<Props> = ({ code, scope }) => {
-  const { theme } = useTheme();
-  const codeTheme = makeCodeTheme(theme);
+  const theme = useTheme()
+  const codeTheme = makeCodeTheme(theme)
   return (
     <LiveProvider code={code} scope={scope} theme={codeTheme}>
       <div className="wrapper">
@@ -43,7 +43,7 @@ const DynamicLive: React.FC<Props> = ({ code, scope }) => {
         }
       `}</style>
     </LiveProvider>
-  );
-};
+  )
+}
 
-export default DynamicLive;
+export default DynamicLive

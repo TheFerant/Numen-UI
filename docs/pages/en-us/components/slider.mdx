@@ -1,11 +1,11 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Slider, Spacer } from "@numen-ui/core";
-import { useState } from "react";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Slider, Spacer } from 'components'
+import { useState } from 'react'
 
 export const meta = {
-  title: "Slider",
-  group: "Data Entry",
-};
+  title: 'Slider',
+  group: 'Data Entry',
+}
 
 ## Slider
 
@@ -103,9 +103,9 @@ Display the current value and an inputable range.
 <Attributes.Title>SliderTypes</Attributes.Title>
 
 ```ts
-type SliderTypes = "default" | "secondary" | "success" | "warning" | "error";
+type SliderTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

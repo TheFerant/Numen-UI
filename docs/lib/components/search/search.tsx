@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react'
 import {
   Modal,
   useKeyboard,
@@ -10,92 +10,87 @@ import {
   useInput,
   useCurrentState,
   Divider,
-} from "@numen-ui/core";
-import { focusNextElement, search, SearchResults } from "./helper";
-import SearchItems, { SearchItemsRef } from "./search-items";
-import { useRouter } from "next/router";
-import useLocale from "lib/use-locale";
+} from 'components'
+import { focusNextElement, search, SearchResults } from './helper'
+import SearchItems, { SearchItemsRef } from './search-items'
+import { useRouter } from 'next/router'
+import useLocale from 'lib/use-locale'
 
 const Search: React.FC<unknown> = () => {
-  const { theme } = useTheme();
-  const router = useRouter();
-  const { locale } = useLocale();
-  const [preventHover, setPreventHover, preventHoverRef] =
-    useCurrentState<boolean>(false);
-  const ref = useRef<HTMLInputElement | null>(null);
-  const itemsRef = useRef<SearchItemsRef | null>(null);
-  const [state, setState] = useState<SearchResults>([]);
-  const { bindings, setVisible, visible } = useModal(false);
-  const {
-    bindings: inputBindings,
-    setState: setInput,
-    state: input,
-  } = useInput("");
+  const theme = useTheme()
+  const router = useRouter()
+  const { locale } = useLocale()
+  const [preventHover, setPreventHover, preventHoverRef] = useCurrentState<boolean>(false)
+  const ref = useRef<HTMLInputElement | null>(null)
+  const itemsRef = useRef<SearchItemsRef | null>(null)
+  const [state, setState] = useState<SearchResults>([])
+  const { bindings, setVisible, visible } = useModal(false)
+  const { bindings: inputBindings, setState: setInput, state: input } = useInput('')
 
   const cleanAfterModalClose = () => {
-    setVisible(false);
+    setVisible(false)
     const timer = window.setTimeout(() => {
-      setState([]);
-      setInput("");
-      itemsRef.current?.scrollTo(0, 0);
-      setPreventHover(true);
-      window.clearTimeout(timer);
-    }, 400);
-  };
+      setState([])
+      setInput('')
+      itemsRef.current?.scrollTo(0, 0)
+      setPreventHover(true)
+      window.clearTimeout(timer)
+    }, 400)
+  }
 
   useKeyboard(() => {
-    setVisible(true);
+    setVisible(true)
     const timer = setTimeout(() => {
-      ref.current?.focus();
-      window.clearTimeout(timer);
-    }, 0);
-  }, [KeyMod.CtrlCmd, KeyCode.KEY_K]);
+      ref.current?.focus()
+      window.clearTimeout(timer)
+    }, 0)
+  }, [KeyMod.CtrlCmd, KeyCode.KEY_K])
 
   useEffect(() => {
-    if (!input) return setState([]);
-    setPreventHover(true);
-    setState(search(input, locale));
-    itemsRef.current?.scrollTo(0, 0);
-  }, [input]);
+    if (!input) return setState([])
+    setPreventHover(true)
+    setState(search(input, locale))
+    itemsRef.current?.scrollTo(0, 0)
+  }, [input])
 
   useEffect(() => {
-    if (visible) return;
-    cleanAfterModalClose();
-  }, [visible]);
+    if (visible) return
+    cleanAfterModalClose()
+  }, [visible])
 
   useEffect(() => {
     const eventHandler = () => {
-      if (!preventHoverRef.current) return;
-      setPreventHover(false);
-    };
-    document.addEventListener("mousemove", eventHandler);
+      if (!preventHoverRef.current) return
+      setPreventHover(false)
+    }
+    document.addEventListener('mousemove', eventHandler)
     return () => {
-      document.removeEventListener("mousemove", eventHandler);
-    };
-  }, []);
+      document.removeEventListener('mousemove', eventHandler)
+    }
+  }, [])
 
   const selectHandler = (url: string) => {
-    if (url.startsWith("http")) return window.open(url);
-    router.push(url);
-    setVisible(false);
-  };
+    if (url.startsWith('http')) return window.open(url)
+    router.push(url)
+    setVisible(false)
+  }
 
   const { bindings: KeyBindings } = useKeyboard(
-    (event) => {
-      const isBack = event.keyCode === KeyCode.UpArrow;
+    event => {
+      const isBack = event.keyCode === KeyCode.UpArrow
       focusNextElement(
         itemsRef.current,
         () => {
-          setPreventHover(true);
+          setPreventHover(true)
         },
-        isBack
-      );
+        isBack,
+      )
     },
     [KeyCode.DownArrow, KeyCode.UpArrow],
     {
       disableGlobalEvent: true,
-    }
-  );
+    },
+  )
 
   return (
     <div className="container" {...KeyBindings}>
@@ -104,8 +99,7 @@ const Search: React.FC<unknown> = () => {
         py={0}
         px={0.75}
         wrapClassName="search-menu"
-        positionClassName="search-position"
-      >
+        positionClassName="search-position">
         <Input
           ref={ref}
           w="100%"
@@ -171,12 +165,11 @@ const Search: React.FC<unknown> = () => {
           height: auto;
         }
         :global(.search-menu.wrapper) {
-          box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.15),
-            0 -5px 20px 0 rgba(0, 0, 0, 0.15) !important;
+          box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.15), 0 -5px 20px 0 rgba(0, 0, 0, 0.15) !important;
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search

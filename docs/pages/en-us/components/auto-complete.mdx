@@ -1,11 +1,11 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { AutoComplete, Spacer, Badge, Grid, Text, Code } from "@numen-ui/core";
-import { useState, useRef, useEffect } from "react";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { AutoComplete, Spacer, Badge, Grid, Text, Code } from 'components'
+import { useState, useRef, useEffect } from 'react'
 
 export const meta = {
-  title: "AutoComplete",
-  group: "Data Entry",
-};
+  title: 'AutoComplete',
+  group: 'Data Entry',
+}
 
 ## Auto Complete
 
@@ -285,9 +285,7 @@ AutoComplete control of input field.
 | **ref**               | forwardRef                                            | <Code>Ref<HTMLInputElement &#124; null></Code> | -                                                | -         |
 | ...                   | native props                                          | `InputHTMLAttributes`                          | `'id', ...`                                      | -         |
 
-<Attributes.Title alias="AutoComplete.Option">
-  AutoComplete.Item
-</Attributes.Title>
+<Attributes.Title alias="AutoComplete.Option">AutoComplete.Item</Attributes.Title>
 
 | Attribute | Description          | Type             | Accepted values          | Default |
 | --------- | -------------------- | ---------------- | ------------------------ | ------- |
@@ -310,26 +308,18 @@ AutoComplete control of input field.
 <Attributes.Title>type AutoCompleteOptions</Attributes.Title>
 
 ```ts
-Array<
-  | {
-      label: string;
-      value: string;
-    }
-  | AutoComplete.Item
->;
+Array<{
+  label: string
+  value: string
+} | AutoComplete.Item>
 ```
 
 <Attributes.Title>AutoCompleteTypes</Attributes.Title>
 
 ```ts
-type AutoCompleteTypes =
-  | "default"
-  | "secondary"
-  | "success"
-  | "warning"
-  | "error";
+type AutoCompleteTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

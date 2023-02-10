@@ -1,11 +1,10 @@
-import React from "react";
-import { Text, Link } from "@numen-ui/core";
+import React from 'react'
+import { Text, Link } from 'components'
 
 const PoweredBy: React.FC<unknown> = () => {
   return (
     <div className="powered-by">
-      Numen is an open source project from Ferant.
-      {/* <Text mb={0} font="14px" type="secondary">
+      <Text mb={0} font="14px" type="secondary">
         Geist is an open source project from the community.
       </Text>
       <Text mt={0} font="14px" type="secondary">
@@ -14,7 +13,7 @@ const PoweredBy: React.FC<unknown> = () => {
           Netlify
         </Link>
         .
-      </Text> */}
+      </Text>
       <style jsx>{`
         .powered-by {
           width: 100%;
@@ -25,7 +24,7 @@ const PoweredBy: React.FC<unknown> = () => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default PoweredBy;
+export default PoweredBy

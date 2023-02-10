@@ -1,10 +1,10 @@
-import Layout from "lib/components/layout";
+import Layout from 'lib/components/layout'
 
 export const meta = {
-  title: "Themes",
-  group: "Customization",
+  title: 'Themes',
+  group: 'Customization',
   index: 25,
-};
+}
 
 ## Themes
 
@@ -21,20 +21,20 @@ To switch in the default themes you only need to set the value of `themeType`, y
 
 ```jsx
 // NAME:src/app.js
-import { CssBaseline, GeistProvider } from "@geist-ui/core";
+import { CssBaseline, GeistProvider } from '@geist-ui/core'
 
 const App = () => {
-  const [themeType, setThemeType] = useState("light");
+  const [themeType, setThemeType] = useState('light')
   const switchThemes = () => {
-    setThemeType((last) => (last === "dark" ? "light" : "dark"));
-  };
+    setThemeType(last => (last === 'dark' ? 'light' : 'dark'))
+  }
   return (
     <GeistProvider themeType={themeType}>
       <CssBaseline />
       <YourComponent onClick={switchThemes} />
     </GeistProvider>
-  );
-};
+  )
+}
 ```
 
 ### Customizing theme
@@ -44,21 +44,21 @@ and all the components will change automatically.
 Here is a complete [sample](https://github.com/geist-org/geist-ui/tree/master/examples/custom-themes) for reference.
 
 ```jsx
-import { CssBaseline, GeistProvider, Themes } from "@geist-ui/core";
+import { CssBaseline, GeistProvider, Themes } from '@geist-ui/core'
 
 const myTheme1 = Themes.createFromLight({
-  type: "coolTheme",
+  type: 'coolTheme',
   palette: {
-    success: "#000",
+    success: '#000',
   },
-});
+})
 
 const App = () => (
   <GeistProvider themes={[myTheme1]} themeType="coolTheme">
     <CssBaseline />
     <YourAppComponent onClick={switchThemes} />
   </GeistProvider>
-);
+)
 ```
 
 Function `Themes.createFromLight` allows you to fork a new theme based on Light Theme,
@@ -88,15 +88,15 @@ import {
   GeistUIThemesPalette,
   GeistUIThemesExpressiveness,
   GeistUIThemesLayout,
-} from "@geist-ui/core";
+} from '@geist-ui/core'
 
 // usage:
 const myStyles: GeistUIThemes = {
   /* ... */
-};
+}
 const myPalette: Partial<GeistUIThemesPalette> = {
   /* ... */
-};
+}
 ```
 
 ### Customizer
@@ -127,9 +127,9 @@ Defining an inline style will also correctly override the component.
 ```jsx
 const MyPage = () => (
   <Row>
-    <Button style={{ margin: "20px" }}>Click me!</Button>
+    <Button style={{ margin: '20px' }}>Click me!</Button>
   </Row>
-);
+)
 ```
 
 ### Build components
@@ -138,16 +138,16 @@ You can use the Geist preset Hooks to get the theme states to create your own co
 For more information, please refer to [useTheme](/en-us/hooks/use-theme) documentation.
 
 ```jsx
-import { useTheme } from "@geist-ui/core";
+import { useTheme } from '@geist-ui/core'
 
 const MyComponent = () => {
-  const { theme } = useTheme();
+  const theme = useTheme()
   return (
     <div style={{ color: theme.palette.success }}>
       <span>hello world!</span>
     </div>
-  );
-};
+  )
+}
 ```
 
 ### Themes APIs
@@ -163,4 +163,4 @@ const MyComponent = () => {
 - `Themes.getPresets` - Get a default list of themes.
 - `Themes.getPresetStaticTheme` - Get the theme loaded by Geist UI default.
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

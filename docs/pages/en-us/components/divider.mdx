@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Divider, Text } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Divider, Text } from 'components'
 
 export const meta = {
-  title: "Divider",
-  group: "Others",
-};
+  title: 'Divider',
+  group: 'Others',
+}
 
 ## Divider
 
@@ -117,21 +117,21 @@ A divider line separates different content.
 
 ```ts
 type DividerTypes =
-  | "default"
-  | "secondary"
-  | "success"
-  | "warning"
-  | "error"
-  | "dark"
-  | "lite";
+  | 'default'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'dark'
+  | 'lite'
 ```
 
 <Attributes.Title>DividerAlign</Attributes.Title>
 
 ```ts
-type DividerAlign = "center" | "start" | "left" | "end" | "right";
+type DividerAlign = 'center' | 'start' | 'left' | 'end' | 'right'
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

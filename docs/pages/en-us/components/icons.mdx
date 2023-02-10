@@ -1,21 +1,18 @@
-import Title from "lib/components/playground/title";
-import Github from "@geist-ui/icons/github";
-import { Spacer, Tabs, Snippet } from "@numen-ui/core";
-import { Layout, Playground, Attributes, IconsGallery } from "lib/components";
+import Title from 'lib/components/playground/title'
+import Github from '@geist-ui/icons/github'
+import { Spacer, Tabs, Snippet } from 'components'
+import { Layout, Playground, Attributes, IconsGallery } from 'lib/components'
 
 export const meta = {
-  title: "Icons",
-  group: "General",
-};
+  title: 'Icons',
+  group: 'General',
+}
 
 ## Icons
 
 Display semantic vector graphics in SVG format.
 
-<Title
-  title="Installation"
-  desc="Install the package in your project directory."
-/>
+<Title title="Installation" desc="Install the package in your project directory." />
 <Tabs initialValue="yarn">
   <Tabs.Item label="Yarn" value="yarn">
     <Spacer h={0.6} />
@@ -76,4 +73,4 @@ Display semantic vector graphics in SVG format.
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

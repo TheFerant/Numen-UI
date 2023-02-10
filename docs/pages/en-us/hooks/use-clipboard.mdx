@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { useClipboard, Link, Button, useToasts, Spacer } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { useClipboard, Link, Button, useToasts, Spacer } from 'components'
 
 export const meta = {
-  title: "useClipboard",
-  group: "Utilities",
-};
+  title: 'useClipboard',
+  group: 'Utilities',
+}
 
 ## useClipboard
 
@@ -36,16 +36,16 @@ This is custom React hooks, you need to follow the <Link target="_blank" color h
 
 ```ts
 type UseClipboardOptions = {
-  onError: Function;
-};
+  onError: Function
+}
 
 type CopyResult = {
-  copy: (text: string) => void;
-};
+  copy: (text: string) => void
+}
 
-const useClipboard = (options?: UseClipboardOptions) => CopyResult;
+const useClipboard = (options?: UseClipboardOptions) => CopyResult
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

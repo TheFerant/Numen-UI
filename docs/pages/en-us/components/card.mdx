@@ -1,19 +1,10 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import {
-  Card,
-  Spacer,
-  Link,
-  Image,
-  Text,
-  Divider,
-  Code,
-  Grid,
-} from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Card, Spacer, Link, Image, Text, Divider, Code, Grid } from 'components'
 
 export const meta = {
-  title: "Card",
-  group: "Surfaces",
-};
+  title: 'Card',
+  group: 'Surfaces',
+}
 
 ## Card
 
@@ -161,19 +152,19 @@ A common container component.
 
 ```ts
 type CardType =
-  | "default"
-  | "secondary"
-  | "success"
-  | "warning"
-  | "error"
-  | "dark"
-  | "lite"
-  | "alert"
-  | "purple"
-  | "violet"
-  | "cyan";
+  | 'default'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'dark'
+  | 'lite'
+  | 'alert'
+  | 'purple'
+  | 'violet'
+  | 'cyan'
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

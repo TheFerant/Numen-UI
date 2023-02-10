@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Snippet, Spacer, Code } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Snippet, Spacer, Code } from 'components'
 
 export const meta = {
-  title: "Snippet",
-  group: "Others",
-};
+  title: 'Snippet',
+  group: 'Others',
+}
 
 ## Snippet
 
@@ -116,33 +116,33 @@ Display a snippet of copyable code for the command line.
 
 ```ts
 type SnippetTypes =
-  | "default"
-  | "secondary"
-  | "success"
-  | "warning"
-  | "error"
-  | "dark"
-  | "lite";
+  | 'default'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'dark'
+  | 'lite'
 ```
 
 <Attributes.Title>CopyTypes</Attributes.Title>
 
 ```ts
-type CopyTypes = "default" | "silent" | "prevent";
+type CopyTypes = 'default' | 'silent' | 'prevent'
 ```
 
 <Attributes.Title>SnippetTypes</Attributes.Title>
 
 ```ts
-type SnippetTypes = "default" | "secondary" | "success" | "warning" | "error";
+type SnippetTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
 ```
 
 <Attributes.Title>ToastTypes</Attributes.Title>
 
 ```ts
-type ToastTypes = "default" | "secondary" | "success" | "warning" | "error";
+type ToastTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

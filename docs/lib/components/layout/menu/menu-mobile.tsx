@@ -1,43 +1,37 @@
-import React, { useMemo } from "react";
-import NextLink from "next/link";
-import { useTheme } from "@numen-ui/core";
-import Metadata from "lib/data";
-import useLocale from "lib/use-locale";
-import { useConfigs } from "lib/config-context";
-import { Sides } from "../sidebar/side-item";
-import ChevronRightIcon from "@geist-ui/icons/chevronRight";
-import { useRouter } from "next/router";
+import React, { useMemo } from 'react'
+import NextLink from 'next/link'
+import { useTheme } from 'components'
+import Metadata from 'lib/data'
+import useLocale from 'lib/use-locale'
+import { useConfigs } from 'lib/config-context'
+import { Sides } from '../sidebar/side-item'
+import ChevronRightIcon from '@geist-ui/icons/chevronRight'
+import { useRouter } from 'next/router'
 
 interface Props {
-  expanded: boolean;
+  expanded: boolean
 }
 
 const MenuMobile: React.FC<Props> = ({ expanded }) => {
-  const { theme } = useTheme();
-  const { pathname } = useRouter();
-
-  const { locale } = useLocale();
-  const menuData = useMemo(() => Metadata[locale], [locale]);
-  const [expandedGroupName, setExpandedGroupName] = React.useState<
-    string | null
-  >(null);
+  const theme = useTheme()
+  const { pathname } = useRouter()
+  const { isChinese } = useConfigs()
+  const { locale } = useLocale()
+  const menuData = useMemo(() => Metadata[locale], [locale])
+  const [expandedGroupName, setExpandedGroupName] = React.useState<string | null>(null)
 
   const handleGroupClick = (name: string) => {
-    setExpandedGroupName(expandedGroupName === name ? null : name);
-  };
+    setExpandedGroupName(expandedGroupName === name ? null : name)
+  }
 
-  if (!expanded) return null;
+  if (!expanded) return null
 
   return (
     <div className="mobile-menu">
       <div className="content">
-        <NextLink href={`/${locale}`}>
-          <a
-            className={`menu-item fadein ${
-              pathname === `/${locale}` ? "active" : ""
-            }`}
-          >
-            {isChinese ? "主页" : "Home"}
+        <NextLink href={`/${locale}`} legacyBehavior>
+          <a className={`menu-item fadein ${pathname === `/${locale}` ? 'active' : ''}`}>
+            {isChinese ? '主页' : 'Home'}
           </a>
         </NextLink>
 
@@ -45,14 +39,10 @@ const MenuMobile: React.FC<Props> = ({ expanded }) => {
           <div
             key={group.name}
             className="fadein"
-            style={{ animationDelay: `${(index + 1) * 50}ms` }}
-          >
+            style={{ animationDelay: `${(index + 1) * 50}ms` }}>
             <button
-              className={`menu-item ${
-                expandedGroupName === group.name && "expanded"
-              }`}
-              onClick={() => handleGroupClick(group.name)}
-            >
+              className={`menu-item ${expandedGroupName === group.name && 'expanded'}`}
+              onClick={() => handleGroupClick(group.name)}>
               <ChevronRightIcon
                 size="1rem"
                 strokeWidth={2}
@@ -62,16 +52,15 @@ const MenuMobile: React.FC<Props> = ({ expanded }) => {
             </button>
             {expandedGroupName === group.name && (
               <div className="group">
-                {(group.children as Array<Sides>).map((section) => (
+                {(group.children as Array<Sides>).map(section => (
                   <div key={section.name}>
                     <span className="section-name">{section.name}</span>
-                    {(section.children as Array<Sides>).map((item) => (
-                      <NextLink href={item.url || "/"} key={item.url}>
+                    {(section.children as Array<Sides>).map(item => (
+                      <NextLink href={item.url || '/'} key={item.url} legacyBehavior>
                         <a
                           className={`section-item ${
-                            pathname === item.url ? "active" : ""
-                          }`}
-                        >
+                            pathname === item.url ? 'active' : ''
+                          }`}>
                           {item.name}
                         </a>
                       </NextLink>
@@ -168,6 +157,6 @@ const MenuMobile: React.FC<Props> = ({ expanded }) => {
       `}</style>
     </div>
   );
-};
+}
 
-export default MenuMobile;
+export default MenuMobile

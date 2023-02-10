@@ -1,32 +1,28 @@
-import React from "react";
-import { Text, useTheme } from "@numen-ui/core";
+import React from 'react'
+import { Text, useTheme } from 'components'
 
 export const getFileName = (name: string): string => {
-  return name.replace(/^(.)/, (g) => g.toLowerCase());
-};
+  return name.replace(/^(.)/, g => g.toLowerCase());
+}
 
 export const getImportString = (name: string) => {
-  const fileName = getFileName(name);
-  const single = `import ${name} from '@geist-ui/icons/${fileName}'`;
-  const normal = `import { ${name} } from '@geist-ui/icons'`;
+  const fileName = getFileName(name)
+  const single = `import ${name} from '@geist-ui/icons/${fileName}'`
+  const normal = `import { ${name} } from '@geist-ui/icons'`
   return {
     single,
     normal,
-  };
-};
-
-interface Props {
-  component: React.ComponentType<any>;
-  name: string;
-  onClick: (name: string) => void;
+  }
 }
 
-const IconsCell: React.FC<Props> = ({
-  component: Component,
-  name,
-  onClick,
-}) => {
-  const { theme } = useTheme();
+interface Props {
+  component: React.ComponentType<any>
+  name: string
+  onClick: (name: string) => void
+}
+
+const IconsCell: React.FC<Props> = ({ component: Component, name, onClick }) => {
+  const theme = useTheme()
   return (
     <div className="icon-item" key={name} onClick={() => onClick(name)}>
       <Component />
@@ -70,7 +66,7 @@ const IconsCell: React.FC<Props> = ({
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(IconsCell);
+export default React.memo(IconsCell)

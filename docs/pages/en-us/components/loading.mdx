@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Loading, Spacer, Grid } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Loading, Spacer, Grid } from 'components'
 
 export const meta = {
-  title: "Loading",
-  group: "Feedback",
-};
+  title: 'Loading',
+  group: 'Feedback',
+}
 
 ## Loading
 
@@ -77,9 +77,9 @@ Indicate an action running in the background.
 <Attributes.Title>LoadingTypes</Attributes.Title>
 
 ```ts
-type LoadingTypes = "default" | "secondary" | "success" | "warning" | "error";
+type LoadingTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

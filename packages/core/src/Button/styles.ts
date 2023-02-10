@@ -9,7 +9,6 @@ export const getVariantStyles = (
     default: {
       color: "btn.bg",
       backgroundColor: `${theme?.colors.neutral.emphasisPlus}`,
-      boxShadow: `${theme?.shadows.btn.shadow}, ${theme?.shadows.btn.insetShadow}`,
       "&:hover:not([disabled])": {
         color: `${theme?.colors.neutral.emphasisPlus}`,
         backgroundColor: `${theme?.colors.fg.onEmphasis}`,
@@ -34,7 +33,6 @@ export const getVariantStyles = (
       color: "btn.primary.text",
       backgroundColor: "btn.primary.bg",
       borderColor: "btn.primary.border",
-      boxShadow: `${theme?.shadows.btn.primary.shadow}`,
       "&:hover:not([disabled])": {
         color: "btn.primary.hoverText",
         backgroundColor: "btn.primary.hoverBg",
@@ -62,18 +60,18 @@ export const getVariantStyles = (
       },
       "&[aria-expanded=true]": {
         backgroundColor: "btn.primary.selectedBg",
-        boxShadow: `${theme?.shadows.btn.primary.selectedShadow}`,
+        // boxShadow: `${theme?.shadows.btn.primary.selectedShadow}`,
       },
     },
     danger: {
       color: "btn.danger.text",
       backgroundColor: "btn.bg",
-      boxShadow: `${theme?.shadows.btn.shadow}`,
+      // boxShadow: `${theme?.shadows.btn.shadow}`,
       "&:hover:not([disabled])": {
         color: "btn.danger.hoverText",
         backgroundColor: "btn.danger.hoverBg",
         borderColor: "btn.danger.hoverBorder",
-        boxShadow: `${theme?.shadows.btn.danger.hoverShadow}`,
+        // boxShadow: `${theme?.shadows.btn.danger.hoverShadow}`,
         "[data-component=ButtonCounter]": {
           backgroundColor: "btn.danger.hoverCounterBg",
           color: "btn.danger.hoverText",
@@ -101,7 +99,7 @@ export const getVariantStyles = (
       "&[aria-expanded=true]": {
         color: "btn.danger.selectedText",
         backgroundColor: "btn.danger.selectedBg",
-        boxShadow: `${theme?.shadows.btn.danger.selectedShadow}`,
+        // boxShadow: `${theme?.shadows.btn.danger.selectedShadow}`,
         borderColor: "btn.danger.selectedBorder",
       },
     },
@@ -109,7 +107,7 @@ export const getVariantStyles = (
       color: "accent.fg",
       backgroundColor: "transparent",
       borderColor: "transparent",
-      boxShadow: "none",
+      // boxShadow: "none",
       "&:hover:not([disabled])": {
         backgroundColor: "btn.hoverBg",
       },
@@ -137,7 +135,7 @@ export const getVariantStyles = (
     },
     outline: {
       color: "btn.outline.text",
-      boxShadow: `${theme?.shadows.btn.shadow}`,
+      // boxShadow: `${theme?.shadows.btn.shadow}`,
       borderColor: "btn.border",
       backgroundColor: "btn.bg",
 
@@ -145,7 +143,7 @@ export const getVariantStyles = (
         color: "btn.outline.hoverText",
         backgroundColor: "btn.outline.hoverBg",
         borderColor: "btn.outline.hoverBorder",
-        boxShadow: `${theme?.shadows.btn.outline.hoverShadow}`,
+        // boxShadow: `${theme?.shadows.btn.outline.hoverShadow}`,
         "[data-component=ButtonCounter]": {
           backgroundColor: "btn.outline.hoverCounterBg",
           color: "inherit",
@@ -154,7 +152,7 @@ export const getVariantStyles = (
       "&:active:not([disabled])": {
         color: "btn.outline.selectedText",
         backgroundColor: "btn.outline.selectedBg",
-        boxShadow: `${theme?.shadows.btn.outline.selectedShadow}`,
+        // boxShadow: `${theme?.shadows.btn.outline.selectedShadow}`,
         borderColor: "btn.outline.selectedBorder",
       },
 
@@ -174,7 +172,7 @@ export const getVariantStyles = (
       "&[aria-expanded=true]": {
         color: "btn.outline.selectedText",
         backgroundColor: "btn.outline.selectedBg",
-        boxShadow: `${theme?.shadows.btn.outline.selectedShadow}`,
+        // boxShadow: `${theme?.shadows.btn.outline.selectedShadow}`,
         borderColor: "btn.outline.selectedBorder",
       },
     },

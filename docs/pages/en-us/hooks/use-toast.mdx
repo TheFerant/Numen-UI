@@ -1,11 +1,11 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { useToasts, Button, Spacer, Link } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { useToasts, Button, Spacer, Link } from 'components'
 
 export const meta = {
-  title: "useToast",
-  group: "Enhancement",
+  title: 'useToast',
+  group: 'Enhancement',
   index: 12,
-};
+}
 
 ## useToast
 
@@ -160,28 +160,25 @@ const {
 <Attributes.Title>ToastPlacement</Attributes.Title>
 
 ```ts
-type ToastPlacement = "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
+type ToastPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'
 ```
 
 <Attributes.Title>ToastAction</Attributes.Title>
 
 ```ts
 interface ToastAction {
-  name: string;
-  handler: (
-    event: React.MouseEventHandler<HTMLButtonElement>,
-    cancel: Function
-  ) => void;
-  passive?: boolean;
+  name: string
+  handler: (event: React.MouseEventHandler<HTMLButtonElement>, cancel: Function) => void
+  passive?: boolean
 }
 ```
 
 <Attributes.Title>ToastTypes</Attributes.Title>
 
 ```ts
-type ToastTypes = "default" | "secondary" | "success" | "warning" | "error";
+type ToastTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

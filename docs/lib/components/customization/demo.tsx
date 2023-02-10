@@ -1,19 +1,11 @@
-import React from "react";
-import Colors from "./colors";
-import {
-  useTheme,
-  Button,
-  Text,
-  Code,
-  Spacer,
-  Link,
-  Select,
-  Grid,
-} from "@numen-ui/core";
-import { useConfigs } from "lib/config-context";
+import React from 'react'
+import Colors from './colors'
+import { useTheme, Button, Text, Code, Spacer, Link, Select, Grid } from 'components'
+import { useConfigs } from 'lib/config-context'
 
 const Demo: React.FC<React.PropsWithChildren<unknown>> = () => {
-  const { theme } = useTheme();
+  const theme = useTheme()
+  const { isChinese } = useConfigs()
 
   return (
     <div className="demo">
@@ -33,35 +25,31 @@ const Demo: React.FC<React.PropsWithChildren<unknown>> = () => {
               PREVIEWS
             </Text>
             <Text>
-              Here&#39;s a preview of your changes to the Theme. When you set
-              the changes, the entire document site will change with the theme.
+              Here&#39;s a preview of your changes to the Theme. When you set the changes,
+              the entire document site will change with the theme.
             </Text>
           </>
         )}
 
         <Spacer h={1.7} />
         <Text h3 font="13px" type="secondary">
-          {isChinese ? "色彩" : "COLORS"}
+          {isChinese ? '色彩' : 'COLORS'}
         </Text>
         <Colors />
 
         <Spacer h={1.7} />
         <Text h3 font="13px" type="secondary">
-          {isChinese ? "排版" : "Typography"}
+          {isChinese ? '排版' : 'Typography'}
         </Text>
         <Text>
-          <Link
-            rel="nofollow"
-            href="https://en.wikipedia.org/wiki/HTTP/2"
-            color
-          >
+          <Link rel="nofollow" href="https://en.wikipedia.org/wiki/HTTP/2" color>
             HTTP/2
-          </Link>{" "}
-          allows the server to <Code>push</Code> content, that is, to respond
-          with data for more queries than the client requested. This allows the
-          server to supply data it knows a web browser will need to render a web
-          page, without waiting for the browser to examine the first response,
-          and without the overhead of an additional request cycle.
+          </Link>{' '}
+          allows the server to <Code>push</Code> content, that is, to respond with data
+          for more queries than the client requested. This allows the server to supply
+          data it knows a web browser will need to render a web page, without waiting for
+          the browser to examine the first response, and without the overhead of an
+          additional request cycle.
         </Text>
         <Text h6>Heading</Text>
         <Text h5>Heading</Text>
@@ -70,7 +58,7 @@ const Demo: React.FC<React.PropsWithChildren<unknown>> = () => {
 
         <Spacer h={1.7} />
         <Text h3 font="13px" type="secondary">
-          {isChinese ? "基础组件" : "Basic Components"}
+          {isChinese ? '基础组件' : 'Basic Components'}
         </Text>
         <Select width="90%" placeholder="Choose one" initialValue="1">
           <Select.Option value="1">Option 1</Select.Option>
@@ -116,7 +104,7 @@ const Demo: React.FC<React.PropsWithChildren<unknown>> = () => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

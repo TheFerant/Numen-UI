@@ -5,23 +5,23 @@ import React, {
   FocusEvent,
   useImperativeHandle,
   useMemo,
-} from "react";
-import { groupResults, isSearchItem, SearchResults } from "./helper";
-import SearchItem from "./search-item";
-import { useTheme } from "@numen-ui/core";
-import Highlight from "components/shared/highlight";
-import { useRect } from "components/utils/layouts";
+} from 'react'
+import { groupResults, isSearchItem, SearchResults } from './helper'
+import SearchItem from './search-item'
+import { useTheme } from 'components'
+import Highlight from 'components/shared/highlight'
+import { useRect } from 'components/utils/layouts'
 
 export type SearchItemsProps = {
-  data: SearchResults;
-  onSelect: (url: string) => void;
-  preventHoverHighlightSync?: boolean;
-  displayHoverHighlight?: boolean;
-};
+  data: SearchResults
+  onSelect: (url: string) => void
+  preventHoverHighlightSync?: boolean
+  displayHoverHighlight?: boolean
+}
 
 export type SearchItemsRef = HTMLUListElement & {
-  closeHighlight: () => void;
-};
+  closeHighlight: () => void
+}
 
 const SearchItems = React.forwardRef<
   SearchItemsRef,
@@ -29,33 +29,33 @@ const SearchItems = React.forwardRef<
 >(
   (
     { data, onSelect, preventHoverHighlightSync },
-    outRef: React.Ref<SearchItemsRef | null>
+    outRef: React.Ref<SearchItemsRef | null>,
   ) => {
-    const { theme } = useTheme();
-    const { rect, setRect } = useRect();
-    const ref = useRef<HTMLUListElement | null>(null);
-    const [displayHighlight, setDisplayHighlight] = useState<boolean>(false);
+    const theme = useTheme()
+    const { rect, setRect } = useRect()
+    const ref = useRef<HTMLUListElement | null>(null)
+    const [displayHighlight, setDisplayHighlight] = useState<boolean>(false)
     useImperativeHandle(outRef, () =>
       Object.assign(ref.current, {
         closeHighlight: () => setDisplayHighlight(false),
-      })
-    );
+      }),
+    )
 
     const hoverHandler = (event: MouseEvent<HTMLButtonElement>) => {
-      if (preventHoverHighlightSync) return;
-      if (!isSearchItem(event.target as HTMLButtonElement)) return;
-      (event.target as HTMLButtonElement).focus();
-    };
+      if (preventHoverHighlightSync) return
+      if (!isSearchItem(event.target as HTMLButtonElement)) return
+      ;(event.target as HTMLButtonElement).focus()
+    }
     const focusHandler = (event: FocusEvent<HTMLButtonElement>) => {
-      if (!isSearchItem(event.target as HTMLButtonElement)) return;
-      setRect(event, () => ref.current);
-      setDisplayHighlight(true);
-    };
+      if (!isSearchItem(event.target as HTMLButtonElement)) return
+      setRect(event, () => ref.current)
+      setDisplayHighlight(true)
+    }
     const blurHandler = () => {
-      setDisplayHighlight(false);
-    };
+      setDisplayHighlight(false)
+    }
 
-    const grouppedResults = useMemo(() => groupResults(data), [data]);
+    const grouppedResults = useMemo(() => groupResults(data), [data])
 
     return (
       <ul className="results" role="listbox" ref={ref}>
@@ -69,7 +69,7 @@ const SearchItems = React.forwardRef<
           <li role="presentation" key={group.title}>
             <div className="group-title">{group.title}</div>
             <ul role="group">
-              {group.items.map((item) => (
+              {group.items.map(item => (
                 <SearchItem
                   onSelect={onSelect}
                   onMouseOver={hoverHandler}
@@ -105,8 +105,8 @@ const SearchItems = React.forwardRef<
           }
         `}</style>
       </ul>
-    );
-  }
-);
+    )
+  },
+)
 
-export default SearchItems;
+export default SearchItems

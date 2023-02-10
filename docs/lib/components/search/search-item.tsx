@@ -1,15 +1,15 @@
-import React, { MouseEvent, FocusEvent } from "react";
-import { SearchResults } from "./helper";
-import { Text, useTheme } from "@numen-ui/core";
-import SearchIcon from "./search-icon";
+import React, { MouseEvent, FocusEvent } from 'react'
+import { SearchResults } from './helper'
+import { Text, useTheme } from 'components'
+import SearchIcon from './search-icon'
 
 export type SearchItemProps = {
-  data: SearchResults[number];
-  onMouseOver: (e: MouseEvent<HTMLButtonElement>) => void;
-  onSelect: (url: string) => void;
-  onFocus: (e: FocusEvent<HTMLButtonElement>) => void;
-  onBlur?: (e: FocusEvent<HTMLButtonElement>) => void;
-};
+  data: SearchResults[number]
+  onMouseOver: (e: MouseEvent<HTMLButtonElement>) => void
+  onSelect: (url: string) => void
+  onFocus: (e: FocusEvent<HTMLButtonElement>) => void
+  onBlur?: (e: FocusEvent<HTMLButtonElement>) => void
+}
 
 const SearchItem: React.FC<SearchItemProps> = ({
   data,
@@ -18,10 +18,10 @@ const SearchItem: React.FC<SearchItemProps> = ({
   onFocus,
   onBlur = () => {},
 }) => {
-  const { theme } = useTheme();
+  const theme = useTheme()
   const selectHandler = () => {
-    onSelect(data.url);
-  };
+    onSelect(data.url)
+  }
 
   return (
     <li role="option">
@@ -31,8 +31,7 @@ const SearchItem: React.FC<SearchItemProps> = ({
         onMouseOver={onMouseOver}
         onFocus={onFocus}
         onBlur={onBlur}
-        data-search-item
-      >
+        data-search-item>
         <SearchIcon data={data} />
         <Text pl="12px" font="14px" className="value" span>
           {data.name}
@@ -64,7 +63,7 @@ const SearchItem: React.FC<SearchItemProps> = ({
         `}</style>
       </button>
     </li>
-  );
-};
+  )
+}
 
-export default SearchItem;
+export default SearchItem

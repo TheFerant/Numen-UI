@@ -1,22 +1,22 @@
-import React from "react";
-import { Card, Grid, useTheme } from "@numen-ui/core";
-import { CardTypes } from "components/utils/prop-types";
+import React from 'react'
+import { Card, Grid, useTheme } from 'components'
+import { CardTypes } from 'components/utils/prop-types'
 
 const types = [
-  "secondary",
-  "success",
-  "warning",
-  "error",
-  "dark",
-  "alert",
-  "purple",
-  "violet",
-  "cyan",
-  "lite",
-];
+  'secondary',
+  'success',
+  'warning',
+  'error',
+  'dark',
+  'alert',
+  'purple',
+  'violet',
+  'cyan',
+  'lite',
+]
 
 const Colors: React.FC<React.PropsWithChildren<unknown>> = () => {
-  const { theme } = useTheme();
+  const theme = useTheme()
 
   return (
     <div className="colors">
@@ -28,7 +28,7 @@ const Colors: React.FC<React.PropsWithChildren<unknown>> = () => {
                 {type}
               </Card>
             </Grid>
-          );
+          )
         })}
       </Grid.Container>
       <style jsx>{`
@@ -45,7 +45,7 @@ const Colors: React.FC<React.PropsWithChildren<unknown>> = () => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default Colors;
+export default Colors

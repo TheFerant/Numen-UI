@@ -1,15 +1,30 @@
-import React from "react";
+import React from 'react'
+import type { DeepPartial } from 'components/utils/types'
+import { GeistUIThemes } from 'components'
 
 export interface Configs {
-  sidebarScrollHeight: number;
-  updateSidebarScrollHeight: (height: number) => void;
+  onThemeChange?: (themes: DeepPartial<GeistUIThemes>) => void
+  isChinese?: boolean
+  updateChineseState: (state: boolean) => void
+  sidebarScrollHeight: number
+  updateSidebarScrollHeight: (height: number) => void
+
+  customTheme: DeepPartial<GeistUIThemes>
+  updateCustomTheme: (theme: DeepPartial<GeistUIThemes>) => void
+  switchTheme: (type: string) => void
 }
 
 export const defaultConfigs: Configs = {
   sidebarScrollHeight: 0,
   updateSidebarScrollHeight: () => {},
-};
+  updateChineseState: () => {},
 
-export const ConfigContext = React.createContext<Configs>(defaultConfigs);
+  customTheme: {},
+  updateCustomTheme: () => {},
+  onThemeChange: () => {},
+  switchTheme: () => {},
+}
 
-export const useConfigs = (): Configs => React.useContext(ConfigContext);
+export const ConfigContext = React.createContext<Configs>(defaultConfigs)
+
+export const useConfigs = (): Configs => React.useContext(ConfigContext)

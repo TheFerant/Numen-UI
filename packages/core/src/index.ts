@@ -8,10 +8,12 @@ export type { ThemeProviderProps } from "./ThemeProvider";
 /**
  * Components
  */
-export * from "./Button";
-
+export * from "./button";
+export {default as Text} from './Text'
+export type {TextProps} from './Text'
 /**
  * Hooks
  */
-export { useDomClean } from "./hooks/useDomClean";
-export { useRefObjectAsForwardedRef } from "./hooks/useRefObjectAsForwardedRef";
+export { useCurrentState } from "./hooks/use-current-state";
+export { useDomClean } from "./hooks/use-dom-clean";
+export { useRefObjectAsForwardedRef } from "./hooks/use-ref-object-as-forwarded-ref";

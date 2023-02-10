@@ -1,16 +1,11 @@
-import {
-  Layout,
-  Playground,
-  PlaygroundTitle,
-  Attributes,
-} from "lib/components";
-import { useMediaQuery, Link, Code, Spacer } from "@numen-ui/core";
-import NextLink from "next/link";
+import { Layout, Playground, PlaygroundTitle, Attributes } from 'lib/components'
+import { useMediaQuery, Link, Code, Spacer } from 'components'
+import NextLink from 'next/link'
 
 export const meta = {
-  title: "useMediaQuery",
-  group: "Utilities",
-};
+  title: 'useMediaQuery',
+  group: 'Utilities',
+}
 
 ## useMediaQuery
 
@@ -60,44 +55,42 @@ This is custom React hooks, you need to follow the <Link target="_blank" color h
 
 ```tsx
 const breakpoints: GeistUIThemesBreakpoints = {
-  xs: { min: "0", max: "650px" },
-  sm: { min: "650px", max: "900px" },
-  md: { min: "900px", max: "1280px" },
-  lg: { min: "1280px", max: "1920px" },
-  xl: { min: "1920px", max: "10000px" },
-};
+  xs: { min: '0', max: '650px' },
+  sm: { min: '650px', max: '900px' },
+  md: { min: '900px', max: '1280px' },
+  lg: { min: '1280px', max: '1920px' },
+  xl: { min: '1920px', max: '10000px' },
+}
 
 const App = () => {
   const myTheme = Themes.createFromLight({
-    type: "myTheme",
+    type: 'myTheme',
     breakpoints,
-  });
+  })
   return (
     <GeistProvider themes={[myTheme]} themeType="myTheme">
       <CssBaseline />
       <AppComponent />
     </GeistProvider>
-  );
-};
+  )
+}
 ```
 
 <Attributes edit="/pages/en-us/hooks/use-media-query.mdx">
 <Attributes.Title>useMediaQuery</Attributes.Title>
 
 ```ts
-type ResponsiveBreakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "mobile";
+type ResponsiveBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'mobile'
 
 type ResponsiveOptions = {
-  match?: "up" | "down";
-  ssrMatchMedia?: (query: string) => { matches: boolean };
-};
+  match?: 'up' | 'down'
+  ssrMatchMedia?: (query: string) => { matches: boolean }
+}
 
-const useMediaQuery = (
-  breakpoint: ResponsiveBreakpoint,
-  options?: ResponsiveOptions
-) => boolean;
+const useMediaQuery = (breakpoint: ResponsiveBreakpoint, options?: ResponsiveOptions) =>
+  boolean
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

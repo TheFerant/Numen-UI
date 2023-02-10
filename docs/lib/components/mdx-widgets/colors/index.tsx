@@ -1,24 +1,24 @@
-import React, { useMemo } from "react";
-import { useTheme, useToasts, Code, Grid, useClipboard } from "@numen-ui/core";
-import { getColorData, getCurrentColor } from "./colors-data";
-import { GeistUIThemesPalette } from "components/themes";
+import React, { useMemo } from 'react'
+import { useTheme, useToasts, Code, Grid, useClipboard } from 'components'
+import { getColorData, getCurrentColor } from './colors-data'
+import { GeistUIThemesPalette } from 'components/themes'
 
 interface Props {
-  type: string;
+  type: string
 }
 
 const getColorItem = (
   type: string,
   palette: GeistUIThemesPalette,
-  copy: (text: string) => void
+  copy: (text: string) => void,
 ) => {
-  const data = getColorData(type);
-  const getColor = (index: number) => getCurrentColor(palette, type, index);
-  const keys = Object.keys(data);
+  const data = getColorData(type)
+  const getColor = (index: number) => getCurrentColor(palette, type, index)
+  const keys = Object.keys(data)
 
   return (keys as Array<keyof GeistUIThemesPalette>).map((key, index) => (
     <div className="color" key={`color-item-${index}`}>
-      <Grid.Container justify="space-between" style={{ height: "4.5rem" }}>
+      <Grid.Container justify="space-between" style={{ height: '4.5rem' }}>
         <Grid.Container alignItems="center" sm={8} xs={16}>
           <h4>{data[key]}</h4>
         </Grid.Container>
@@ -40,27 +40,27 @@ const getColorItem = (
         }
       `}</style>
     </div>
-  ));
-};
+  ))
+}
 
 const Colors: React.FC<Props> = ({ type }) => {
-  const { theme } = useTheme();
-  const { copy } = useClipboard();
-  const { setToast } = useToasts();
+  const theme = useTheme()
+  const { copy } = useClipboard()
+  const { setToast } = useToasts()
   const copyText = (text: string) => {
-    copy(text);
+    copy(text)
     setToast({
       text: (
         <span>
           Copied <Code>{text}</Code>
         </span>
       ),
-    });
-  };
+    })
+  }
   const colorItems = useMemo(
     () => getColorItem(type, theme.palette, copyText),
-    [type, theme.palette]
-  );
+    [type, theme.palette],
+  )
 
   return (
     <div className="colors">
@@ -100,7 +100,7 @@ const Colors: React.FC<Props> = ({ type }) => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default Colors;
+export default Colors

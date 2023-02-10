@@ -1,18 +1,18 @@
-import React from "react";
-import { Card, Link, useTheme } from "@numen-ui/core";
-import NextLink from "next/link";
+import React from 'react'
+import { Card, Link, useTheme } from 'components'
+import NextLink from 'next/link'
 
 export type HomeCellProps = {
-  url: string;
-  title: string;
-  desc: string;
-  icon: React.ReactNode;
-};
+  url: string
+  title: string
+  desc: string
+  icon: React.ReactNode
+}
 
 const HomeCell: React.FC<HomeCellProps> = ({ url, title, desc, icon }) => {
-  const { theme } = useTheme();
+  const theme = useTheme()
   return (
-    <NextLink href={url} passHref>
+    <NextLink href={url} passHref legacyBehavior>
       <Link>
         <Card padding="5px" shadow width="100%">
           <h4 className="feature__title">
@@ -50,6 +50,6 @@ const HomeCell: React.FC<HomeCellProps> = ({ url, title, desc, icon }) => {
       </Link>
     </NextLink>
   );
-};
+}
 
-export default HomeCell;
+export default HomeCell

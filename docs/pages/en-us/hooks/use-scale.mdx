@@ -1,15 +1,15 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Button, useTheme } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Button, useTheme } from 'components'
 
 export const meta = {
-  title: "useScale",
-  group: "Development",
+  title: 'useScale',
+  group: 'Development',
   index: 103,
-};
+}
 
 ## useScale
 
-Remember the elastic scaling feature mentioned in the [scale](/en-us/guide/scale "Scale") subsection,
+Remember the elastic scaling feature mentioned in the [scale](/en-us/guide/scale 'Scale') subsection,
 which gave the Geist components amazing imagination and extensibility,
 and now you can add elastic scaling features to your own components with the help of the `useScale` hooks.
 
@@ -18,9 +18,9 @@ and now you can add elastic scaling features to your own components with the hel
 As a first example, let's prepare a simple component with a fixed width:
 
 ```tsx
-const MyComponent = ({ width: string = "20px" }) => {
-  return <div style={{ width }}>Scale Component</div>;
-};
+const MyComponent = ({ width: string = '20px' }) => {
+  return <div style={{ width }}>Scale Component</div>
+}
 ```
 
 Although the component accepts a `string` parameter to define the `width`, we can't control the multiplier of the width,
@@ -30,14 +30,14 @@ but when our component can set more than 10 styles, the calculation of these val
 Now we try to bind the component to the scale of Geist:
 
 ```tsx
-import { withScale, useScale } from "@geist-ui/core";
+import { withScale, useScale } from '@geist-ui/core'
 
 const MyComponent = () => {
-  const { SCALES } = useScale();
-  return <div style={{ width: SCALES.width(1.25) }}>Scale Component</div>;
-};
+  const { SCALES } = useScale()
+  return <div style={{ width: SCALES.width(1.25) }}>Scale Component</div>
+}
 
-export default withScale(MyComponent);
+export default withScale(MyComponent)
 ```
 
 `withScale` can transform any component into a dynamically scaled component and automatically **add props and types** to the component.
@@ -67,11 +67,11 @@ For a simple component, the following example can be used to illustrate:
 
 ```tsx
 const MyComponent = () => {
-  const { SCALES } = useScale();
-  return <div style={{ width: SCALES.width(1, "auto") }}>Fixed Component</div>;
-};
+  const { SCALES } = useScale()
+  return <div style={{ width: SCALES.width(1, 'auto') }}>Fixed Component</div>
+}
 
-export default withScale(MyComponent);
+export default withScale(MyComponent)
 ```
 
 When we use this component, the width cannot be scaled by a multiple anymore:
@@ -128,27 +128,28 @@ const MyComponent = () => {
 <MyComponent />               // output -> undefined
 ```
 
+
 <Attributes edit="/pages/en-us/hooks/use-scale.mdx">
 <Attributes.Title>withScale</Attributes.Title>
 
 ```ts
-type withScale = (Render: React.ComponentType) => React.ComponentType;
+type withScale = (Render: React.ComponentType) => React.ComponentType
 ```
 
 <Attributes.Title>useScale</Attributes.Title>
 
 ```ts
-type useScale = () => ScaleConfig;
+type useScale = () => ScaleConfig
 
 type ScaleConfig = {
-  SCALES: DynamicScales;
+  SCALES: DynamicScales
   // Get the native value of scale prop
-  getScaleProps: GetScalePropsFunction;
+  getScaleProps: GetScalePropsFunction
   // Base value of the current component
-  unit: string;
-};
+  unit: string
+}
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

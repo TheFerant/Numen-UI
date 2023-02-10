@@ -17,7 +17,7 @@ const replaceCode = (desc: string): string => {
     const val = count % 2 === 0 ? '<code>' : '</code>'
     count++
     return val
-  })
+  });
 }
 
 const Title: React.FC<TitleProps> = React.memo(

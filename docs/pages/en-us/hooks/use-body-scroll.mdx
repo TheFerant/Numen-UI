@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Button, Spacer, Text, useBodyScroll } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Button, Spacer, Text, useBodyScroll } from 'components'
 
 export const meta = {
-  title: "useBodyScroll",
-  group: "Utilities",
-};
+  title: 'useBodyScroll',
+  group: 'Utilities',
+}
 
 ## useBodyScroll
 
@@ -35,15 +35,15 @@ If the page's scrollbar is set to a user-defined `width` before scrolling is dis
 
 ```ts
 type BodyScrollOptions = {
-  delayReset: number; // resume scrolling after a delay, default is 0
-};
+  delayReset: number  // resume scrolling after a delay, default is 0
+}
 
 const useBodyScroll = (
   elementRef?: RefObject<HTMLElement> | null,
-  options?: BodyScrollOptions
-) => [boolean, Dispatch<SetStateAction<boolean>>];
+  options?: BodyScrollOptions,
+) => [boolean, Dispatch<SetStateAction<boolean>>]
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

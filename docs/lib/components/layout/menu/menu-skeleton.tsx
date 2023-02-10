@@ -1,8 +1,8 @@
-import React from "react";
-import { useTheme } from "@numen-ui/core";
+import React from 'react'
+import useTheme from 'components/use-theme'
 
 const MenuSkeleton: React.FC<unknown> = () => {
-  const { theme } = useTheme();
+  const theme = useTheme()
   return (
     <div className="skeleton">
       <style jsx>{`
@@ -15,7 +15,7 @@ const MenuSkeleton: React.FC<unknown> = () => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default MenuSkeleton;
+export default MenuSkeleton

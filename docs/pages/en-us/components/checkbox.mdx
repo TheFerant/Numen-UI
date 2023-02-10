@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Checkbox, Spacer } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Checkbox, Spacer } from 'components'
 
 export const meta = {
-  title: "Checkbox",
-  group: "Data Entry",
-};
+  title: 'Checkbox',
+  group: 'Data Entry',
+}
 
 ## Checkbox
 
@@ -107,24 +107,24 @@ Displays a boolean value.
 <Attributes.Title>CheckboxTypes</Attributes.Title>
 
 ```ts
-type CheckboxTypes = "default" | "secondary" | "success" | "warning" | "error";
+type CheckboxTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
 ```
 
 <Attributes.Title>CheckboxEvent</Attributes.Title>
 
 ```ts
 interface CheckboxEventTarget {
-  checked: boolean;
+  checked: boolean
 }
 
 export interface CheckboxEvent {
-  target: CheckboxEventTarget;
-  stopPropagation: () => void;
-  preventDefault: () => void;
-  nativeEvent: React.ChangeEvent;
+  target: CheckboxEventTarget
+  stopPropagation: () => void
+  preventDefault: () => void
+  nativeEvent: React.ChangeEvent
 }
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Card, Fieldset, Button, Text, Divider } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Card, Fieldset, Button, Text, Divider } from 'components'
 
 export const meta = {
-  title: "Fieldset",
-  group: "Surfaces",
-};
+  title: 'Fieldset',
+  group: 'Surfaces',
+}
 
 ## Fieldset
 
@@ -114,9 +114,7 @@ Display a collection of related information in a single unit.
 | **subtitle** | subtitle of fieldset               | `ReactNode` / `string`   | -                          | -       |
 | ...          | native props                       | `FieldsetHTMLAttributes` | `'name', 'className', ...` | -       |
 
-<Attributes.Title alias="Fieldset.Body">
-  Fieldset.Content.Props
-</Attributes.Title>
+<Attributes.Title alias="Fieldset.Body">Fieldset.Content.Props</Attributes.Title>
 
 | Attribute | Description  | Type             | Accepted values | Default |
 | --------- | ------------ | ---------------- | --------------- | ------- |
@@ -138,4 +136,4 @@ Display a collection of related information in a single unit.
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

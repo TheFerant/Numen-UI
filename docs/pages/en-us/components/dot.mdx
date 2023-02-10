@@ -1,10 +1,10 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Dot } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Dot } from 'components'
 
 export const meta = {
-  title: "Dot",
-  group: "Data Display",
-};
+  title: 'Dot',
+  group: 'Data Display',
+}
 
 ## Dot
 
@@ -45,9 +45,9 @@ Display an indicator of standardization status.
 <Attributes.Title>DotTypes</Attributes.Title>
 
 ```ts
-type DotTypes = "default" | "secondary" | "success" | "warning" | "error";
+type DotTypes = 'default' | 'secondary' | 'success' | 'warning' | 'error'
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

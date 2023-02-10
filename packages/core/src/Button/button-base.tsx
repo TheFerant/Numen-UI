@@ -5,18 +5,20 @@ import React, {
   useState,
   MouseEvent,
 } from "react";
-import { ForwardRefComponent as PolymorphicForwardRefComponent } from "../utils/polymorphic";
+
 import Box from "../Box";
 import { BetterSystemStyleObject, merge } from "../sx";
 import { useTheme } from "../ThemeProvider";
+import { useRefObjectAsForwardedRef } from "../hooks/use-ref-object-as-forwarded-ref";
+import { ForwardRefComponent as PolymorphicForwardRefComponent } from "../utils/polymorphic";
+import { defaultSxProp } from "../utils/defaultSxProp";
+
 import { ButtonProps, StyledButton } from "./types";
 import {
   getVariantStyles,
   getButtonStyles,
   getAlignContentSize,
 } from "./styles";
-import { useRefObjectAsForwardedRef } from "../hooks/useRefObjectAsForwardedRef";
-import { defaultSxProp } from "../utils/defaultSxProp";
 import ButtonDrip from "./button-drip";
 
 const ButtonBase = forwardRef(

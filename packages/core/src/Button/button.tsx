@@ -4,7 +4,6 @@ import { ButtonBase } from "./button-base";
 import { ForwardRefComponent as PolymorphicForwardRefComponent } from "../utils/polymorphic";
 import { defaultSxProp } from "../utils/defaultSxProp";
 import { BetterSystemStyleObject } from "../sx";
-import ButtonDrip from "./button-drip";
 
 const ButtonComponent = forwardRef(
   (

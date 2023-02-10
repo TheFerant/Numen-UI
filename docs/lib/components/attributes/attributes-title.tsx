@@ -1,25 +1,27 @@
-import React from "react";
-import { VirtualAnchor } from "../pures";
-import { Code, useTheme } from "@numen-ui/core";
+import React from 'react'
+import { VirtualAnchor } from '../pures'
+import { Code, useTheme } from 'components'
+import { useConfigs } from 'lib/config-context'
 
 export interface AttributesTitleProps {
-  alias?: string;
+  alias?: string
 }
 
-const getAlias = (alias?: string) => {
-  if (!alias) return null;
+const getAlias = (isChinese: boolean, alias?: string) => {
+  if (!alias) return null
   return (
     <small>
       <span>[</span>
-      alias: <Code>{alias}</Code>
+      {isChinese ? '别名' : 'alias'}: <Code>{alias}</Code>
       <span>]</span>
     </small>
-  );
-};
+  )
+}
 
 const AttributesTitle: React.FC<React.PropsWithChildren<AttributesTitleProps>> =
   React.memo(({ children, alias }) => {
-    const { theme } = useTheme();
+    const theme = useTheme()
+    const { isChinese } = useConfigs()
 
     return (
       <>
@@ -27,7 +29,7 @@ const AttributesTitle: React.FC<React.PropsWithChildren<AttributesTitleProps>> =
           <Code>
             <VirtualAnchor pure>{children}</VirtualAnchor>
           </Code>
-          {getAlias(alias)}
+          {getAlias(!!isChinese, alias)}
         </h4>
 
         <style jsx>{`
@@ -55,7 +57,7 @@ const AttributesTitle: React.FC<React.PropsWithChildren<AttributesTitleProps>> =
           }
         `}</style>
       </>
-    );
-  });
+    )
+  })
 
-export default AttributesTitle;
+export default AttributesTitle

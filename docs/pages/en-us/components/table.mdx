@@ -1,15 +1,10 @@
-import {
-  Layout,
-  Playground,
-  PlaygroundTitle,
-  Attributes,
-} from "lib/components";
-import { Table, Spacer, Code, Text, Button } from "@numen-ui/core";
+import { Layout, Playground, PlaygroundTitle, Attributes } from 'lib/components'
+import { Table, Spacer, Code, Text, Button } from 'components'
 
 export const meta = {
-  title: "Table",
-  group: "Data Display",
-};
+  title: 'Table',
+  group: 'Data Display',
+}
 
 ## Table
 
@@ -186,16 +181,16 @@ Display tabular data in format.
 
 ```tsx
 type User = {
-  name: string;
-  role: string;
-  records: Array<{ date: string }>;
-};
+  name: string
+  role: string
+  records: Array<{ date: string }>
+}
 const renderHandler: TableColumnRender<User> = (value, rowData, index) => {
-  return <div>{rowData.date}</div>;
-};
+  return <div>{rowData.date}</div>
+}
 const data: Array<User> = [
-  { name: "witt", role: "admin", records: [{ date: "2021-05-01" }] },
-];
+  { name: 'witt', role: 'admin', records: [{ date: '2021-05-01' }] },
+]
 
 const MyComponent = () => (
   <Table<User> data={data}>
@@ -203,7 +198,7 @@ const MyComponent = () => (
     <Table.Column<User> prop="role" label="role" />
     <Table.Column<User> prop="records" label="records" render={renderHandler} />
   </Table>
-);
+)
 ```
 
 <Attributes edit="/pages/en-us/components/table.mdx">
@@ -234,7 +229,7 @@ const MyComponent = () => (
 <Attributes.Title>TableOnRowClick</Attributes.Title>
 
 ```ts
-type TableOnRowClick<T> = (rowData: T, rowIndex: number) => void;
+type TableOnRowClick<T> = (rowData: T, rowIndex: number) => void
 ```
 
 <Attributes.Title>TableOnCellClick</Attributes.Title>
@@ -243,14 +238,14 @@ type TableOnRowClick<T> = (rowData: T, rowIndex: number) => void;
 type TableOnCellClick<T> = (
   value: T[keyof T],
   rowIndex: number,
-  colunmIndex: number
-) => void;
+  colunmIndex: number,
+) => void
 ```
 
 <Attributes.Title>TableRowClassNameHandler</Attributes.Title>
 
 ```ts
-type TableRowClassNameHandler<T> = (rowData: T, rowIndex: number) => string;
+type TableRowClassNameHandler<T> = (rowData: T, rowIndex: number) => string
 ```
 
 <Attributes.Title>TableColumnRender</Attributes.Title>
@@ -259,10 +254,10 @@ type TableRowClassNameHandler<T> = (rowData: T, rowIndex: number) => string;
 type TableColumnRender<T extends Record> = (
   value: T[keyof T],
   rowData: T,
-  rowIndex: number
-) => JSX.Element | void;
+  rowIndex: number,
+) => JSX.Element | void
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

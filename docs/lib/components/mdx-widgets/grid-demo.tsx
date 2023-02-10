@@ -1,10 +1,10 @@
-import React from "react";
-import { useTheme } from "@numen-ui/core";
-import { addColorAlpha } from "components/utils/color";
+import React from 'react'
+import { useTheme } from 'components'
+import { addColorAlpha } from 'components/utils/color'
 
 const GridDemo: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-  const { theme } = useTheme();
-  const bgColor = addColorAlpha(theme.colors.neutral.emphasis, 0.5);
+  const theme = useTheme()
+  const bgColor = addColorAlpha(theme.palette.accents_2, 0.5)
   return (
     <div className="grid-demo">
       {children}
@@ -33,7 +33,7 @@ const GridDemo: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default GridDemo;
+export default GridDemo

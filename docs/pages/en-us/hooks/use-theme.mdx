@@ -1,11 +1,11 @@
-import { Layout, Playground, Attributes } from "lib/components";
-import { Button, useTheme } from "@numen-ui/core";
+import { Layout, Playground, Attributes } from 'lib/components'
+import { Button, useTheme } from 'components'
 
 export const meta = {
-  title: "useTheme",
-  group: "Development",
+  title: 'useTheme',
+  group: 'Development',
   index: 100,
-};
+}
 
 ## useTheme
 
@@ -24,7 +24,7 @@ switching themes in the upper right corner of the website, the color of the comp
   desc=""
   code={`
 () => {
-  const { theme } = useTheme()
+  const theme = useTheme()
   return (
     <div style={{
         width: '200px',
@@ -48,16 +48,16 @@ switching themes in the upper right corner of the website, the color of the comp
 <Attributes.Title>useTheme</Attributes.Title>
 
 ```ts
-const theme: GeistUIThemes = useTheme();
+const theme: GeistUIThemes = useTheme()
 
 export type GeistUIThemes = {
-  type: string;
-  font: GeistUIThemesFont;
-  layout: GeistUIThemesLayout;
-  palette: GeistUIThemesPalette;
-  breakpoints: GeistUIThemesBreakpoints;
-  expressiveness: GeistUIThemesExpressiveness;
-};
+  type: string
+  font: GeistUIThemesFont
+  layout: GeistUIThemesLayout
+  palette: GeistUIThemesPalette
+  breakpoints: GeistUIThemesBreakpoints
+  expressiveness: GeistUIThemesExpressiveness
+}
 ```
 
 <Attributes.Title>Get preset types</Attributes.Title>
@@ -69,11 +69,11 @@ import {
   GeistUIThemesPalette,
   GeistUIThemesExpressiveness,
   GeistUIThemesLayout,
-} from "@geist-ui/core";
+} from '@geist-ui/core'
 
-const myFontTheme: GeistUIThemesFont = {};
+const myFontTheme: GeistUIThemesFont = { }
 ```
 
 </Attributes>
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
